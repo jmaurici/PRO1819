@@ -13,13 +13,13 @@ public class Ejercicios {
 
 		String nombre = "LAS PALMAS DE GRAN CANARIA";
 		// iterar en la cadena mostrando sus caracteres
-		//for (int i = 0; i < nombre.length(); i++)
-			//System.out.println(nombre.charAt(i));
+		// for (int i = 0; i < nombre.length(); i++)
+		// System.out.println(nombre.charAt(i));
 
 		String c1 = "abcd";
 		String c2 = "abcdaaaaaaaaa";
 		System.out.println(c1.compareTo(c2));
-		
+
 	}
 
 	public float calcularSaldoFinal(float saldoInicial, float[] movimientos) {
@@ -207,6 +207,7 @@ public class Ejercicios {
 			resultado[i] = inferior + rnd.nextInt(superior - inferior + 1);
 		return resultado;
 	}
+
 	// 30 octubre 2018
 	public int sumaAleatorios(int n, int inferior, int superior) {
 		int resultado; // DECLARACION EN LA TABLA DE SIMBOLOS
@@ -214,9 +215,10 @@ public class Ejercicios {
 		Random rnd = new Random();
 		int numero = 0;
 		for (int i = 0; i < n; i++)
-			resultado  += inferior + rnd.nextInt(superior - inferior + 1);
-		return resultado/n;
+			resultado += inferior + rnd.nextInt(superior - inferior + 1);
+		return resultado / n;
 	}
+
 	public int[] generaEstadisticaAparicion(int n, int inferior, int superior) {
 		{
 			int[] resultado; // DECLARACION EN LA TABLA DE SIMBOLOS
@@ -231,14 +233,54 @@ public class Ejercicios {
 		}
 	}
 
+	public float[] resumenVendedor(float[][] ventas) {
+		//float acumVendedor = 0;
+		float[] resultado = new float[ventas.length];
+		// iterar por filas/columnas acumulando ventas de cada vendedor en un
+		// año
+		for (int i = 0; i < ventas.length; i++) {
+			//acumVendedor = 0;
+			for (int j = 0; j < ventas[i].length; j++)
+				resultado[i]+= ventas[i][j];				//acumVendedor += ventas[i][j];;
+			//resultado[i] = acumVendedor;
+		}
+		return resultado;
+	}
+	public float[] resumenVentasPorMes(float[][] ventas) {
+		//float acumVendedor = 0;
+		float[] resultado = new float[ventas.length];
+		// iterar por filas/columnas acumulando ventas de cada vendedor en un
+		// año
+		for (int i = 0; i < ventas.length; i++) {
+			//acumVendedor = 0;
+			for (int j = 0; j < ventas[i].length; j++)
+				resultado[i]+= ventas[i][j];				//acumVendedor += ventas[i][j];;
+			//resultado[i] = acumVendedor;
+		}
+		return resultado;
+	}
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
+
+		float[][] ventasYear = {
+				// hay 3 filas (vendedores) y 12 columnas (meses)
+				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f },
+				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f },
+				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f }
+
+		};
+		float[] resumenVendedor;
+		resumenVendedor = ejercicios.resumenVendedor(ventasYear);
+
 		// crear e inicializar un array, varias opciones.
 		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
 		float saldoI = 100.0f;
 		ejercicios.pruebaCadenas();
-		 System.out.println("Saldo final :"
-		 + ejercicios.calcularSaldoFinal(saldoI, movs));
+		//System.out.println("Saldo final :"
+		//		+ ejercicios.calcularSaldoFinal(saldoI, movs));
 		// String[] diasSemana = {"LUNES", "MARTES"};
 		/*
 		 * movs = new float[4];
