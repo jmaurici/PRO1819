@@ -16,7 +16,7 @@ public class Persona {
 		this.nif = "12345678F";
 		this.nombre="Anónimo";
 		this.fecha_nac=LocalDate.now();
-		this.longitudPaso=33;
+		longitudPaso=33;
 		
 	}
 
@@ -24,7 +24,7 @@ public class Persona {
 		super();
 		this.nif = nif;
 		this.nombre = nombre;
-		this.longitudPaso = longitudPaso;
+		longitudPaso = longitudPaso;
 		this.fecha_nac = null;
 	}
 

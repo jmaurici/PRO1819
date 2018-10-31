@@ -7,6 +7,43 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 25/10/18
+
+	public void pruebaCadenas() {
+
+		String nombre = "LAS PALMAS DE GRAN CANARIA";
+		// iterar en la cadena mostrando sus caracteres
+		//for (int i = 0; i < nombre.length(); i++)
+			//System.out.println(nombre.charAt(i));
+
+		String c1 = "abcd";
+		String c2 = "abcdaaaaaaaaa";
+		System.out.println(c1.compareTo(c2));
+		
+	}
+
+	public float calcularSaldoFinal(float saldoInicial, float[] movimientos) {
+
+		float saldoFinal = saldoInicial;
+		// recorrer el array movimientos
+		// sumando dichas cantidades a saldoFinal.
+		for (int i = 0; i < movimientos.length; i++)
+			saldoFinal += movimientos[i];
+		return saldoFinal;
+	}
+
+	// 23/10/18
+
+	// metodo para devolver una lista de n pèrsonas
+
+	Persona[] creaListaPersonas(int n) {
+		Persona[] lista = null;
+
+		lista = new Persona[n];
+		for (int i = 0; i < lista.length; i++)
+			lista[i] = new Persona();
+		return lista;
+	}
 
 	// --------------- 04/10/2018 ACTIVIDAD: BUSCAR EN LA API
 	// -------------------------------
@@ -170,7 +207,16 @@ public class Ejercicios {
 			resultado[i] = inferior + rnd.nextInt(superior - inferior + 1);
 		return resultado;
 	}
-
+	// 30 octubre 2018
+	public int sumaAleatorios(int n, int inferior, int superior) {
+		int resultado; // DECLARACION EN LA TABLA DE SIMBOLOS
+		resultado = 0; // INICIALIAZACION
+		Random rnd = new Random();
+		int numero = 0;
+		for (int i = 0; i < n; i++)
+			resultado  += inferior + rnd.nextInt(superior - inferior + 1);
+		return resultado/n;
+	}
 	public int[] generaEstadisticaAparicion(int n, int inferior, int superior) {
 		{
 			int[] resultado; // DECLARACION EN LA TABLA DE SIMBOLOS
@@ -187,14 +233,29 @@ public class Ejercicios {
 
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
-		//
+		// crear e inicializar un array, varias opciones.
+		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
+		float saldoI = 100.0f;
+		ejercicios.pruebaCadenas();
+		 System.out.println("Saldo final :"
+		 + ejercicios.calcularSaldoFinal(saldoI, movs));
+		// String[] diasSemana = {"LUNES", "MARTES"};
+		/*
+		 * movs = new float[4];
+		 * 
+		 * movs[0] = 10.0f; movs[1] = -5.0f; movs[2] = 20.5f; movs[3] = -10.5f;
+		 */
+
 		int a = 10, b = 17, c = 14, d = 11;
 		// int menor= Ejercicios.calNumMenor(a, b, c, d);
 		int menor = ejercicios.calNumMenor(a, b, c, d);
 		// System.out.println("el menor es : " + menor);
 
 		// ejercicios.imprimeAleatorios(6, 1, 6);
-		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
+		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1,
+				6);
+
+		Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
 		// factorial(5);
 
 		// serieFibonacci(8);
