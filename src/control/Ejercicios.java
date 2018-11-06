@@ -1,7 +1,6 @@
 package control;
 
 import java.time.LocalDate;
-
 import java.util.Random;
 
 import modelo.Persona;
@@ -234,33 +233,54 @@ public class Ejercicios {
 	}
 
 	public float[] resumenVendedor(float[][] ventas) {
-		//float acumVendedor = 0;
+		// float acumVendedor = 0;
 		float[] resultado = new float[ventas.length];
 		// iterar por filas/columnas acumulando ventas de cada vendedor en un
 		// año
 		for (int i = 0; i < ventas.length; i++) {
-			//acumVendedor = 0;
+			// acumVendedor = 0;
 			for (int j = 0; j < ventas[i].length; j++)
-				resultado[i]+= ventas[i][j];				//acumVendedor += ventas[i][j];;
-			//resultado[i] = acumVendedor;
+				resultado[i] += ventas[i][j]; // acumVendedor += ventas[i][j];;
+			// resultado[i] = acumVendedor;
 		}
 		return resultado;
 	}
+
 	public float[] resumenVentasPorMes(float[][] ventas) {
-		//float acumVendedor = 0;
+		// float acumVendedor = 0;
 		float[] resultado = new float[ventas.length];
 		// iterar por filas/columnas acumulando ventas de cada vendedor en un
 		// año
 		for (int i = 0; i < ventas.length; i++) {
-			//acumVendedor = 0;
+			// acumVendedor = 0;
 			for (int j = 0; j < ventas[i].length; j++)
-				resultado[i]+= ventas[i][j];				//acumVendedor += ventas[i][j];;
-			//resultado[i] = acumVendedor;
+				resultado[i] += ventas[i][j]; // acumVendedor += ventas[i][j];;
+			// resultado[i] = acumVendedor;
 		}
 		return resultado;
 	}
+
+	public int[] convierteCadenas(String[] cadenas) {
+		// el array de salida tiene el MISMO numero
+		// de elementos que el de entrada
+		// si un numero no es valido, se pone -1.
+		int[] resultado = new int[cadenas.length];
+		for (int i = 0; i < cadenas.length; i++)
+			try {
+				resultado[i] = Integer.parseInt(cadenas[i]);
+				System.out.println("LLega aqui");
+			} catch (NumberFormatException e) {
+				resultado[i] = -1;
+			}				
+			
+		return resultado;
+	}
+
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
+
+		String[] datos = { "123", "8k8", "9811", "xyz" };
+		int[] numeros = ejercicios.convierteCadenas(datos);
 
 		float[][] ventasYear = {
 				// hay 3 filas (vendedores) y 12 columnas (meses)
@@ -273,14 +293,14 @@ public class Ejercicios {
 
 		};
 		float[] resumenVendedor;
-		resumenVendedor = ejercicios.resumenVendedor(ventasYear);
+		// resumenVendedor = ejercicios.resumenVendedor(ventasYear);
 
 		// crear e inicializar un array, varias opciones.
 		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
 		float saldoI = 100.0f;
 		ejercicios.pruebaCadenas();
-		//System.out.println("Saldo final :"
-		//		+ ejercicios.calcularSaldoFinal(saldoI, movs));
+		// System.out.println("Saldo final :"
+		// + ejercicios.calcularSaldoFinal(saldoI, movs));
 		// String[] diasSemana = {"LUNES", "MARTES"};
 		/*
 		 * movs = new float[4];
