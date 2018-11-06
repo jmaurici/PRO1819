@@ -6,6 +6,7 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+
 	// 25/10/18
 
 	public void pruebaCadenas() {
@@ -246,6 +247,24 @@ public class Ejercicios {
 		return resultado;
 	}
 
+	public void mostrarVentasVendedor() {
+		String[] nombresVendedor = { "JUAN CARLOS", "ISABEL", "MARTA" };
+		float[][] ventasYear = {
+				// hay 3 filas (vendedores) y 12 columnas (meses)
+				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f },
+				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f },
+				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f,
+						6.5f, 5.5f, 6.0f }
+
+		};
+		float[] ventas = resumenVendedor(ventasYear);
+		for (int i = 0; i < ventas.length; i++)
+			System.out.println(nombresVendedor[i] + " : " + ventas[i]);
+
+	}
+
 	public float[] resumenVentasPorMes(float[][] ventas) {
 		// float acumVendedor = 0;
 		float[] resultado = new float[ventas.length];
@@ -271,16 +290,17 @@ public class Ejercicios {
 				System.out.println("LLega aqui");
 			} catch (NumberFormatException e) {
 				resultado[i] = -1;
-			}				
-			
+			}
+
 		return resultado;
 	}
 
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
+		ejercicios.mostrarVentasVendedor();
 
 		String[] datos = { "123", "8k8", "9811", "xyz" };
-		int[] numeros = ejercicios.convierteCadenas(datos);
+		//int[] numeros = ejercicios.convierteCadenas(datos);
 
 		float[][] ventasYear = {
 				// hay 3 filas (vendedores) y 12 columnas (meses)
@@ -298,7 +318,7 @@ public class Ejercicios {
 		// crear e inicializar un array, varias opciones.
 		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
 		float saldoI = 100.0f;
-		ejercicios.pruebaCadenas();
+		//ejercicios.pruebaCadenas();
 		// System.out.println("Saldo final :"
 		// + ejercicios.calcularSaldoFinal(saldoI, movs));
 		// String[] diasSemana = {"LUNES", "MARTES"};
