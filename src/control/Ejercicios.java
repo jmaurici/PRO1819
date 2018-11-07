@@ -6,6 +6,22 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 7 noviembre 2018
+	// 3 bucles anidados for , un reloj
+
+	public void mostrarHMS()   {
+		for (int h = 0; h < 1; h++)
+			for (int m = 0; m < 60; m++)
+				for (int s = 0; s < 60; s++) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					System.out.println(h + " : " + m + " : " + s);
+				}
+	}
 
 	// 25/10/18
 
@@ -267,14 +283,14 @@ public class Ejercicios {
 
 	public float[] resumenVentasPorMes(float[][] ventas) {
 		// float acumVendedor = 0;
-		float[] resultado = new float[ventas.length];
+		float[] resultado = new float[ventas[0].length];
 		// iterar por filas/columnas acumulando ventas de cada vendedor en un
 		// año
-		for (int i = 0; i < ventas.length; i++) {
+		for (int j = 0; j < ventas[0].length; j++) {
 			// acumVendedor = 0;
-			for (int j = 0; j < ventas[i].length; j++)
-				resultado[i] += ventas[i][j]; // acumVendedor += ventas[i][j];;
-			// resultado[i] = acumVendedor;
+			for (int i = 0; i < ventas.length; i++)
+				resultado[j] += ventas[i][j]; // acumVendedor += ventas[i][j];;
+
 		}
 		return resultado;
 	}
@@ -296,11 +312,12 @@ public class Ejercicios {
 	}
 
 	public static void main(String[] args) {
-		Ejercicios ejercicios = new Ejercicios();
-		ejercicios.mostrarVentasVendedor();
 
+		Ejercicios ejercicios = new Ejercicios();
+		// ejercicios.mostrarVentasVendedor();
+		ejercicios.mostrarHMS();
 		String[] datos = { "123", "8k8", "9811", "xyz" };
-		//int[] numeros = ejercicios.convierteCadenas(datos);
+		// int[] numeros = ejercicios.convierteCadenas(datos);
 
 		float[][] ventasYear = {
 				// hay 3 filas (vendedores) y 12 columnas (meses)
@@ -314,11 +331,11 @@ public class Ejercicios {
 		};
 		float[] resumenVendedor;
 		// resumenVendedor = ejercicios.resumenVendedor(ventasYear);
-
+		// float[] reumenPorMes = ejercicios.resumenVentasPorMes(ventasYear);
 		// crear e inicializar un array, varias opciones.
 		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
 		float saldoI = 100.0f;
-		//ejercicios.pruebaCadenas();
+		// ejercicios.pruebaCadenas();
 		// System.out.println("Saldo final :"
 		// + ejercicios.calcularSaldoFinal(saldoI, movs));
 		// String[] diasSemana = {"LUNES", "MARTES"};
