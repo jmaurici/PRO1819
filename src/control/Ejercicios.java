@@ -6,10 +6,47 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 8 noviembre 2018
+
+	public boolean esPrimo(int n) {
+		for (int i = 2; i < n; i++)
+			if (n % i == 0)
+				return false;
+		return true;
+	}
+
+	public void listarPrimos(int desde, int hasta) {
+
+		for (int i = desde; i < hasta; i++) {
+			if (esPrimo(i))
+				System.out.print(i + ", ");
+		}
+	}
+
+	public void listarPrimos2(int desde, int cuantos) {
+		int contador = 0;
+		while (contador < cuantos)
+			if (esPrimo(desde++)) {
+				System.out.print(desde + ", ");
+				contador++;
+			}
+	}
+
+	public int[] listarPrimos3(int desde, int cuantos) {
+		int[] resultado = new int[cuantos];
+		int contador = 0;
+		while (contador < cuantos)
+			if (esPrimo(desde)) {
+				resultado[contador] = desde++;
+				contador++;
+			}
+		return resultado;
+	}
+
 	// 7 noviembre 2018
 	// 3 bucles anidados for , un reloj
 
-	public void mostrarHMS()   {
+	public void mostrarHMS() {
 		for (int h = 0; h < 1; h++)
 			for (int m = 0; m < 60; m++)
 				for (int s = 0; s < 60; s++) {
@@ -314,8 +351,15 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
-		// ejercicios.mostrarVentasVendedor();
-		ejercicios.mostrarHMS();
+
+		// System.out.println(ejercicios.esPrimo(99525));
+
+		int inicio = 500;
+		int cuantos = 5;
+		ejercicios.listarPrimos2(inicio, cuantos);
+
+int [] numeros=	ejercicios.listarPrimos3(inicio, cuantos);
+		// ejercicios.mostrarHMS();
 		String[] datos = { "123", "8k8", "9811", "xyz" };
 		// int[] numeros = ejercicios.convierteCadenas(datos);
 
