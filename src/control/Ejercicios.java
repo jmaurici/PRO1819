@@ -6,6 +6,27 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 13 nov 2018
+	public int[] desgloseMoneda(int cantidad) {
+		int[] monedas = { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
+		int[] resultado = new int[monedas.length];
+		// bucle
+		int indice = 0;
+		while (cantidad % monedas[indice] != 0) {
+			// if (cantidad / monedas[indice] > 0) {
+			// cantidad = cantidad % monedas[indice];
+			resultado[indice] = cantidad / monedas[indice];
+            cantidad = cantidad % monedas[indice]; 
+			indice++;
+		}
+
+		// Para que cuando el resto sea 0 coja el valor
+		resultado[indice] = cantidad / monedas[indice];
+
+		return resultado;
+	}
+	
+	
 	// 8 noviembre 2018
 
 	public boolean esPrimo(int n) {
