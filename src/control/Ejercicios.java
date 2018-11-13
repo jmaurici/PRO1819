@@ -6,17 +6,40 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 14 noviembre 2018
+	public void ordenaArray(String[] a) {
+		
+	}
 	// 13 nov 2018
+	public void ordenaArray(int[] a) {
+		for (int i = 0; i < a.length - 1; i++)
+			for (int j = i + 1; j < a.length; j++)
+				if (a[i] < a[j]) {
+					int aux = a[i];
+					a[i] = a[j];
+					a[j] = aux;
+				}
+	}
+
+	public void listaDesgloseMoneda(int cantidad) {
+		System.out.println("CANTIDAD : " + cantidad);
+		int[] monedas = { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
+		int[] resultado = desgloseMoneda(cantidad);
+		for (int i = 0; i < resultado.length; i++) {
+			if (resultado[i] != 0)
+				System.out.println(monedas[i] + " -> " + resultado[i]);
+		}
+
+	}
+
 	public int[] desgloseMoneda(int cantidad) {
 		int[] monedas = { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
 		int[] resultado = new int[monedas.length];
 		// bucle
 		int indice = 0;
 		while (cantidad % monedas[indice] != 0) {
-			// if (cantidad / monedas[indice] > 0) {
-			// cantidad = cantidad % monedas[indice];
 			resultado[indice] = cantidad / monedas[indice];
-            cantidad = cantidad % monedas[indice]; 
+			cantidad = cantidad % monedas[indice];
 			indice++;
 		}
 
@@ -25,8 +48,7 @@ public class Ejercicios {
 
 		return resultado;
 	}
-	
-	
+
 	// 8 noviembre 2018
 
 	public boolean esPrimo(int n) {
@@ -372,14 +394,19 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
+		
+		int[] x = {78,34,1,34,54,29,3};
+		ejercicios.ordenaArray(x);
 
+		// int[] monedas = ejercicios.desgloseMoneda(1234);
+		//ejercicios.listaDesgloseMoneda(3);
 		// System.out.println(ejercicios.esPrimo(99525));
 
 		int inicio = 500;
 		int cuantos = 5;
 		ejercicios.listarPrimos2(inicio, cuantos);
 
-int [] numeros=	ejercicios.listarPrimos3(inicio, cuantos);
+		//int[] numeros = ejercicios.listarPrimos3(inicio, cuantos);
 		// ejercicios.mostrarHMS();
 		String[] datos = { "123", "8k8", "9811", "xyz" };
 		// int[] numeros = ejercicios.convierteCadenas(datos);
