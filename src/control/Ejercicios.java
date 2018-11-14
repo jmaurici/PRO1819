@@ -7,14 +7,42 @@ import modelo.Persona;
 
 public class Ejercicios {
 	// 14 noviembre 2018
-	public void ordenaArray(String[] a) {
+	public int[] sumaColumnasMatrizHeterogenea(int[][] matriz) {
+
+		int numColMAX = 0;
+		for (int i = 0; i < matriz.length; i++)
+			if (matriz[i].length > numColMAX)
+				numColMAX = matriz[i].length;
+
+		int[] resultado = new int[numColMAX];
+		// recorrer matriz por COLUMNAS
 		
+		for (int j = 0; j < numColMAX; j++) {
+			for (int i = 0; i < matriz.length; i++)
+				try {
+					resultado[j] += matriz[i][j];
+				} catch (ArrayIndexOutOfBoundsException e) {
+					
+				}
+		}
+		return resultado;
 	}
+
+	public void ordenaArrayCadenas(String[] cadenas) {
+		for (int i = 0; i < cadenas.length - 1; i++)
+			for (int j = i + 1; j < cadenas.length; j++)
+				if (cadenas[i].compareTo(cadenas[j]) < 0) {
+					String aux = cadenas[i];
+					cadenas[i] = cadenas[j];
+					cadenas[j] = aux;
+				}
+	}
+
 	// 13 nov 2018
-	public void ordenaArray(int[] a) {
+	public void ordenaArrayNumeros(int[] a) {
 		for (int i = 0; i < a.length - 1; i++)
 			for (int j = i + 1; j < a.length; j++)
-				if (a[i] < a[j]) {
+				if (a[i] > a[j]) {
 					int aux = a[i];
 					a[i] = a[j];
 					a[j] = aux;
@@ -394,21 +422,34 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
-		
-		int[] x = {78,34,1,34,54,29,3};
-		ejercicios.ordenaArray(x);
 
+		int[][] datos = 
+			{
+				{1,4},
+				{6},
+				{5,2,3},
+				{4,2,5,1,9,0,3},
+				{5,6,1,3}
+			};
+		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
+		
+		// int[] x = {78,34,1,34,54,29,3};
+		String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto",
+				"alejandro" };
+		//ejercicios.ordenaArrayCadenas(nombres);
+		int[] lista = ejercicios.generaListaAleatorios(1000, 1, 5000);
+		//ejercicios.ordenaArrayNumeros(lista);
 		// int[] monedas = ejercicios.desgloseMoneda(1234);
-		//ejercicios.listaDesgloseMoneda(3);
+		// ejercicios.listaDesgloseMoneda(3);
 		// System.out.println(ejercicios.esPrimo(99525));
 
 		int inicio = 500;
 		int cuantos = 5;
 		ejercicios.listarPrimos2(inicio, cuantos);
 
-		//int[] numeros = ejercicios.listarPrimos3(inicio, cuantos);
+		// int[] numeros = ejercicios.listarPrimos3(inicio, cuantos);
 		// ejercicios.mostrarHMS();
-		String[] datos = { "123", "8k8", "9811", "xyz" };
+		//String[] datos = { "123", "8k8", "9811", "xyz" };
 		// int[] numeros = ejercicios.convierteCadenas(datos);
 
 		float[][] ventasYear = {
