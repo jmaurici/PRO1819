@@ -6,6 +6,36 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 20 noviembre 2018
+	
+	// Ejercicios con arrays
+	
+	// 1. Dada una lista (array) de enteros (int), obtener la lista INVERTIDA sobre si misma
+	
+	public void invertirLista(int[] lista) {
+		
+		
+	}
+	
+	// 2. Dadas dos listas PREVIAMENTE ORDENADAS,  se pide obtener la lista MEZCLA de ambas
+	
+	
+	public int[] mezclaListasOrdenadas(int[] l1, int[] l2) {
+		return l2;
+		
+		
+	}
+	
+	// 3. Dada una cadena , obtener la cadena INVIRTIENDO sus caracteres (char)
+	// usar charAt() o toCharArray()
+	
+	
+	public String ivertirCaracteres (String cadena) {
+		return cadena;
+		
+	}
+	
+	
 	// 14 noviembre 2018
 	public int[] sumaColumnasMatrizHeterogenea(int[][] matriz) {
 
