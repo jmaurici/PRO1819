@@ -6,6 +6,20 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 21 noviembre 2018
+	
+	public   void ordenaFilasMatriz (int[][] matriz) {
+		for (int i = 0; i < matriz.length; i++) 
+			ordenaArrayNumeros(matriz[i]);	
+	}
+	
+	
+	public int[] matrizToArrayOrdenado (int[][] matriz) {
+		return null;
+		// implementación ...
+	}
+	
+	
 	// 20 noviembre 2018
 	
 	// Ejercicios con arrays
@@ -455,12 +469,15 @@ public class Ejercicios {
 
 		int[][] datos = 
 			{
-				{1,4},
+				{7,4,6},
 				{6},
 				{5,2,3},
 				{4,2,5,1,9,0,3},
 				{5,6,1,3}
 			};
+		ejercicios.ordenaFilasMatriz(datos);
+		
+		
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 		
 		// int[] x = {78,34,1,34,54,29,3};
