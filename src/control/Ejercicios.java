@@ -7,49 +7,68 @@ import modelo.Persona;
 
 public class Ejercicios {
 	// 21 noviembre 2018
-	
-	public   void ordenaFilasMatriz (int[][] matriz) {
-		for (int i = 0; i < matriz.length; i++) 
-			ordenaArrayNumeros(matriz[i]);	
+
+	public void ordenaFilasMatriz(int[][] matriz) {
+		for (int i = 0; i < matriz.length; i++)
+			ordenaArrayNumeros(matriz[i]);
 	}
-	
-	
-	public int[] matrizToArrayOrdenado (int[][] matriz) {
+
+	public int[] matrizToArrayOrdenado(int[][] matriz) {
 		return null;
 		// implementación ...
 	}
-	
-	
+
 	// 20 noviembre 2018
-	
+
 	// Ejercicios con arrays
-	
-	// 1. Dada una lista (array) de enteros (int), obtener la lista INVERTIDA sobre si misma
-	
+
+	// 1. Dada una lista (array) de enteros (int), obtener la lista INVERTIDA sobre
+	// si misma
+
 	public void invertirLista(int[] lista) {
-		
-		
+
 	}
-	
-	// 2. Dadas dos listas PREVIAMENTE ORDENADAS,  se pide obtener la lista MEZCLA de ambas
-	
-	
+
+	// 2. Dadas dos listas PREVIAMENTE ORDENADAS, se pide obtener la lista MEZCLA de
+	// ambas
+
 	public int[] mezclaListasOrdenadas(int[] l1, int[] l2) {
-		return l2;
-		
-		
+
+		int[] resultado = new int[l1.length + l2.length];
+		int i = 0;
+		int j = 0;
+		int k = 0;
+
+		while (k < l1.length + l2.length) {
+			// while (i < l1.length || j < l2.length) {
+			try {
+				if (l1[i] < l2[j]) {
+					resultado[k] = l1[i];
+					i++;
+				} else {
+					resultado[k] = l2[j];
+					j++;
+				}
+				k++;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				if (i == l1.length) // fin de l1..
+					l1[--i] = Integer.MAX_VALUE;
+				else
+					l2[--j] = Integer.MAX_VALUE;
+			}
+		}
+		return resultado;
+
 	}
-	
+
 	// 3. Dada una cadena , obtener la cadena INVIRTIENDO sus caracteres (char)
 	// usar charAt() o toCharArray()
-	
-	
-	public String ivertirCaracteres (String cadena) {
+
+	public String ivertirCaracteres(String cadena) {
 		return cadena;
-		
+
 	}
-	
-	
+
 	// 14 noviembre 2018
 	public int[] sumaColumnasMatrizHeterogenea(int[][] matriz) {
 
@@ -60,13 +79,13 @@ public class Ejercicios {
 
 		int[] resultado = new int[numColMAX];
 		// recorrer matriz por COLUMNAS
-		
+
 		for (int j = 0; j < numColMAX; j++) {
 			for (int i = 0; i < matriz.length; i++)
 				try {
 					resultado[j] += matriz[i][j];
 				} catch (ArrayIndexOutOfBoundsException e) {
-					
+
 				}
 		}
 		return resultado;
@@ -218,13 +237,12 @@ public class Ejercicios {
 
 	public void pruebasAPI() {
 		/*
-		 * 1. imprime por consola el valor de 2^3 - Usa la clase estática Math y
-		 * su método pow (Cuando es estático no hace falta el new)
+		 * 1. imprime por consola el valor de 2^3 - Usa la clase estática Math y su
+		 * método pow (Cuando es estático no hace falta el new)
 		 * 
-		 * 2. Imprime un valor aleatorio entre 1 y 100 - Usa la clase
-		 * java.util.Random y el método rnd 3. En la cadena
-		 * "LAS PALMAS DE GRAN CANARIA", imprime "GRAN" -Usa el método substring
-		 * de la clase java.lang.String
+		 * 2. Imprime un valor aleatorio entre 1 y 100 - Usa la clase java.util.Random y
+		 * el método rnd 3. En la cadena "LAS PALMAS DE GRAN CANARIA", imprime "GRAN"
+		 * -Usa el método substring de la clase java.lang.String
 		 */
 
 		// 1.
@@ -235,8 +253,7 @@ public class Ejercicios {
 		System.out.println("2. " + rnd.nextInt(100));
 
 		// 3.
-		System.out.println("3. "
-				+ "LAS PALMAS DE GRAN CANARIA".substring(14, 18));
+		System.out.println("3. " + "LAS PALMAS DE GRAN CANARIA".substring(14, 18));
 	}
 
 	// ACTIVIDAD: Mostrar por consola los números comprendidos entre dos
@@ -297,14 +314,12 @@ public class Ejercicios {
 	public static void factorial(int numFact) {
 		int num1 = 1;
 		if (numFact == 0 | numFact == 1) {
-			System.out.println("El factorial de " + "'" + numFact + "'"
-					+ " es :  1");
+			System.out.println("El factorial de " + "'" + numFact + "'" + " es :  1");
 		} else {
 			for (int i = 2; i <= numFact; i++) {
 				num1 = num1 * i;
 			}
-			System.out.println("El factorial de " + "'" + numFact + "'"
-					+ " es :" + num1);
+			System.out.println("El factorial de " + "'" + numFact + "'" + " es :" + num1);
 		}
 	}
 
@@ -419,12 +434,9 @@ public class Ejercicios {
 		String[] nombresVendedor = { "JUAN CARLOS", "ISABEL", "MARTA" };
 		float[][] ventasYear = {
 				// hay 3 filas (vendedores) y 12 columnas (meses)
-				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f },
-				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f },
-				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f }
+				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
+				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
+				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f }
 
 		};
 		float[] ventas = resumenVendedor(ventasYear);
@@ -466,26 +478,35 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
+		int[] lista1 = { 2, 4, 8, 9 };
+		int[] lista2 = { 1, 3, 5,23,45,67,89,123 };
+		
+		int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
+		//ejercicios.ordenaFilasMatriz(datos);
 
-		int[][] datos = 
-			{
-				{7,4,6},
-				{6},
-				{5,2,3},
-				{4,2,5,1,9,0,3},
-				{5,6,1,3}
-			};
-		ejercicios.ordenaFilasMatriz(datos);
-		
-		
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
-		
+
 		// int[] x = {78,34,1,34,54,29,3};
-		String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto",
-				"alejandro" };
-		//ejercicios.ordenaArrayCadenas(nombres);
+		String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto", "alejandro" };
+		// ejercicios.ordenaArrayCadenas(nombres);
 		int[] lista = ejercicios.generaListaAleatorios(1000, 1, 5000);
-		//ejercicios.ordenaArrayNumeros(lista);
+		// ejercicios.ordenaArrayNumeros(lista);
 		// int[] monedas = ejercicios.desgloseMoneda(1234);
 		// ejercicios.listaDesgloseMoneda(3);
 		// System.out.println(ejercicios.esPrimo(99525));
@@ -496,17 +517,14 @@ public class Ejercicios {
 
 		// int[] numeros = ejercicios.listarPrimos3(inicio, cuantos);
 		// ejercicios.mostrarHMS();
-		//String[] datos = { "123", "8k8", "9811", "xyz" };
+		// String[] datos = { "123", "8k8", "9811", "xyz" };
 		// int[] numeros = ejercicios.convierteCadenas(datos);
 
 		float[][] ventasYear = {
 				// hay 3 filas (vendedores) y 12 columnas (meses)
-				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f },
-				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f },
-				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f,
-						6.5f, 5.5f, 6.0f }
+				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
+				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
+				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f }
 
 		};
 		float[] resumenVendedor;
@@ -531,8 +549,7 @@ public class Ejercicios {
 		// System.out.println("el menor es : " + menor);
 
 		// ejercicios.imprimeAleatorios(6, 1, 6);
-		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1,
-				6);
+		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
 
 		Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
 		// factorial(5);
