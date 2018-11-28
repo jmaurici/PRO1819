@@ -6,6 +6,22 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	private Persona[] personas;
+	
+	public void hijosPersonas() {
+		for (int i = 0; i < personas.length; i++) {
+			Persona[] hijos = personas[i].getHijosBiologicos();	
+			System.out.println("PROGENITOR -> " + personas[i].getNombre());
+			if ( hijos != null) {				
+				for (int j = 0; j < hijos.length; j++) {
+				      System.out.println("Hijo -> " + hijos[j].getNombre());	
+				}
+				
+			}
+			
+		}
+		
+	}
 	// 27 noviembre 18
 
 	public int[] matrizToArrayOrdenado(int[][] matriz) {

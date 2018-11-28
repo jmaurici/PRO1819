@@ -5,50 +5,86 @@ import java.util.Random;
 
 public class Persona {
 	private String nif;
-	 private String nombre;
-	 private int longitudPaso;
-	 private LocalDate fecha_nac; // Clase "LocalDate" manejar fechas
-	 
-	 
-	 
-	 public Persona() {
+	private String nombre;
+	private int longitudPaso;
+	private LocalDate fecha_nac; // Clase "LocalDate" manejar fechas
+	private char sexo; // 'M' 'F'
+    private Persona[] hijosBiologicos;
+    private Persona padre;
+    private Persona madre;
+	
+	
+	public Persona() {
 		super();
 		this.nif = "12345678F";
-		this.nombre="Anónimo";
-		this.fecha_nac=LocalDate.now();
-		longitudPaso=33;
-		
+		this.nombre = "Anónimo";
+		this.fecha_nac = LocalDate.now();
+		longitudPaso = 33;
+
 	}
 
-	public Persona(String nif, String nombre, int longitudPaso, LocalDate fecha_nac) {
+	public Persona(String nif, String nombre, int longitudPaso, LocalDate fecha_nac, char sexo) {
 		super();
 		this.nif = nif;
 		this.nombre = nombre;
 		longitudPaso = longitudPaso;
 		this.fecha_nac = null;
+		this.sexo = sexo;
 	}
 
-	
-	 
-	 public int caminar (int numPasos) {
-		 
-		 double a=9.0;
-		 double raiz = Math.sqrt(a);
-		 
-		 Random miRandom = new Random(); // Crea un objeto de la clase "Random"
-		 
-		 int valor = miRandom.nextInt();
-		 
-		 return numPasos * longitudPaso / 100;
-		 
-	 }
+	public Persona getPadre() {
+		return padre;
+	}
+
+	public void setPadre(Persona padre) {
+		this.padre = padre;
+	}
+
+	public Persona getMadre() {
+		return madre;
+	}
+
+	public void setMadre(Persona madre) {
+		this.madre = madre;
+	}
+
+	public char getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+
+	public Persona[] getHijosBiologicos() {
+		return hijosBiologicos;
+	}
+
+	public void setHijosBiologicos(Persona[] hijosBiologicos) {
+		this.hijosBiologicos = hijosBiologicos;
+	}
+
+	public int caminar(int numPasos) {
+
+		double a = 9.0;
+		double raiz = Math.sqrt(a);
+
+		Random miRandom = new Random(); // Crea un objeto de la clase "Random"
+
+		int valor = miRandom.nextInt();
+
+		return numPasos * longitudPaso / 100;
+
+	}
 
 	public String getNif() {
+		
 		return nif;
 	}
 
 	public void setNif(String nif) {
-		this.nif = nif;  // -- nif de la derecha es que se pasa por parámetro. Es diferente a la propiedad nif
+		this.nif = nif; // -- nif de la derecha es que se pasa por parámetro. Es diferente a la
+						// propiedad nif
 	}
 
 	public String getNombre() {
