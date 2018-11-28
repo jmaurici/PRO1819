@@ -6,16 +6,24 @@ import java.util.Random;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 27 noviembre 18
+
+	public int[] matrizToArrayOrdenado(int[][] matriz) {
+		int[] result = new int[1];
+		ordenaFilasMatriz(matriz);
+		for (int i = 0; i < matriz.length; i++) 
+			// Se crea un nuevo array con la unión de matriz[i] y result
+			// Y se guarda en result
+			result = mezclaListasOrdenadas(result, matriz[i]);
+		return result;
+
+	}
+
 	// 21 noviembre 2018
 
 	public void ordenaFilasMatriz(int[][] matriz) {
 		for (int i = 0; i < matriz.length; i++)
 			ordenaArrayNumeros(matriz[i]);
-	}
-
-	public int[] matrizToArrayOrdenado(int[][] matriz) {
-		return null;
-		// implementación ...
 	}
 
 	// 20 noviembre 2018
@@ -26,6 +34,13 @@ public class Ejercicios {
 	// si misma
 
 	public void invertirLista(int[] lista) {
+		int aux;
+		for (int i = 0; i < lista.length / 2; i++) {
+			aux = lista[i];
+			lista[i] = lista[lista.length - i - 1];
+			lista[lista.length - i - 1] = lista[i];
+
+		}
 
 	}
 
@@ -479,26 +494,15 @@ public class Ejercicios {
 
 		Ejercicios ejercicios = new Ejercicios();
 		int[] lista1 = { 2, 4, 8, 9 };
-		int[] lista2 = { 1, 3, 5,23,45,67,89,123 };
-		
-		int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
+
+		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
+		// ejercicios.invertirLista(lista1);
+
 		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
-		//ejercicios.ordenaFilasMatriz(datos);
+
+		int[] vector = ejercicios.matrizToArrayOrdenado(datos);
+		ejercicios.ordenaFilasMatriz(datos);
 
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 
