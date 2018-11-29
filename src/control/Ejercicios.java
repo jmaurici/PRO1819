@@ -54,12 +54,18 @@ public class Ejercicios {
 		for (int i = 0; i < lista.length / 2; i++) {
 			aux = lista[i];
 			lista[i] = lista[lista.length - i - 1];
-			lista[lista.length - i - 1] = lista[i];
+			lista[lista.length - i - 1] = aux;
 
 		}
 
 	}
-
+	public int[] invertirLista2(int[] lista) {
+		int[] resultado= new int[lista.length];
+		for (int i = 0; i < lista.length; i++) 		
+			resultado[lista.length -1 - i] = lista[i];
+		return resultado;
+	}
+	
 	// 2. Dadas dos listas PREVIAMENTE ORDENADAS, se pide obtener la lista MEZCLA de
 	// ambas
 
@@ -81,12 +87,16 @@ public class Ejercicios {
 					j++;
 				}
 				k++;
-			} catch (ArrayIndexOutOfBoundsException e) {
+				
+			} catch (ArrayIndexOutOfBoundsException excepcion) {
+				
 				if (i == l1.length) // fin de l1..
 					l1[--i] = Integer.MAX_VALUE;
 				else
 					l2[--j] = Integer.MAX_VALUE;
 			}
+			
+			
 		}
 		return resultado;
 
@@ -502,6 +512,7 @@ public class Ejercicios {
 			} catch (NumberFormatException e) {
 				resultado[i] = -1;
 			}
+		
 
 		return resultado;
 	}
@@ -513,12 +524,27 @@ public class Ejercicios {
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
 		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
-		// ejercicios.invertirLista(lista1);
-
+		// ejercicios.invertirLista(lista2);
+		int[] listaInvertida = ejercicios.invertirLista2(lista2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
 
 		int[] vector = ejercicios.matrizToArrayOrdenado(datos);
-		ejercicios.ordenaFilasMatriz(datos);
+		//ejercicios.ordenaFilasMatriz(datos);
 
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 
