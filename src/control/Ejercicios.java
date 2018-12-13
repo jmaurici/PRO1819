@@ -3,12 +3,28 @@ package control;
 import java.time.LocalDate;
 import java.util.Random;
 
+import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	
+	//13 dic 2018 Intro a la Herencia
+	
+	// crear un Estudiante
+	
+	public void crearEstudiante() {
+		
+		Estudiante estudiante = new Estudiante("43781230V", "Pedro Garcia", 153, LocalDate.now(), 'M');
+        
+	}
+	
+	
+	
+	
+	
 	private Persona[] personas;
 	
-	public void hijosPersonas() {
+	/*public void hijosPersonas() {
 		for (int i = 0; i < personas.length; i++) {
 			Persona[] hijos = personas[i].getHijosBiologicos();	
 			System.out.println("PROGENITOR -> " + personas[i].getNombre());
@@ -21,7 +37,7 @@ public class Ejercicios {
 			
 		}
 		
-	}
+	}*/
 	// 27 noviembre 18
 
 	public int[] matrizToArrayOrdenado(int[][] matriz) {
@@ -525,7 +541,8 @@ public class Ejercicios {
 
 		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
 		// ejercicios.invertirLista(lista2);
-		int[] listaInvertida = ejercicios.invertirLista2(lista2);
+		//int[] listaInvertida = ejercicios.invertirLista2(lista2);
+		ejercicios.crearEstudiante();
 		
 		
 		

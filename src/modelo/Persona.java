@@ -9,11 +9,7 @@ public class Persona {
 	private int longitudPaso;
 	private LocalDate fecha_nac; // Clase "LocalDate" manejar fechas
 	private char sexo; // 'M' 'F'
-    private Persona[] hijosBiologicos;
-    private Persona padre;
-    private Persona madre;
-	
-	
+   
 	public Persona() {
 		super();
 		this.nif = "12345678F";
@@ -32,22 +28,7 @@ public class Persona {
 		this.sexo = sexo;
 	}
 
-	public Persona getPadre() {
-		return padre;
-	}
-
-	public void setPadre(Persona padre) {
-		this.padre = padre;
-	}
-
-	public Persona getMadre() {
-		return madre;
-	}
-
-	public void setMadre(Persona madre) {
-		this.madre = madre;
-	}
-
+	
 	public char getSexo() {
 		return sexo;
 	}
@@ -56,14 +37,7 @@ public class Persona {
 		this.sexo = sexo;
 	}
 
-	public Persona[] getHijosBiologicos() {
-		return hijosBiologicos;
-	}
-
-	public void setHijosBiologicos(Persona[] hijosBiologicos) {
-		this.hijosBiologicos = hijosBiologicos;
-	}
-
+	
 	public int caminar(int numPasos) {
 
 		double a = 9.0;
