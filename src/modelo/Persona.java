@@ -23,8 +23,8 @@ public class Persona {
 		super();
 		this.nif = nif;
 		this.nombre = nombre;
-		longitudPaso = longitudPaso;
-		this.fecha_nac = null;
+		this.longitudPaso = longitudPaso;
+		this.fecha_nac = fecha_nac;
 		this.sexo = sexo;
 	}
 

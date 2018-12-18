@@ -1,49 +1,66 @@
 package control;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Random;
 
 import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
-	
-	//13 dic 2018 Intro a la Herencia
-	
-	// crear un Estudiante
-	
-	public void crearEstudiante() {
+
+	// 18 diciembre 18
+
+	public void introListas() {
+
+		ArrayList<Persona> lista;
+
+		lista = new ArrayList<Persona>();
 		
-		Estudiante estudiante = new Estudiante("43781230V", "Pedro Garcia", 153, LocalDate.now(), 'M');
-        
+		lista.add(new Persona());
+		
+		lista.add(new Persona("44321654F", "Pepe", 145, LocalDate.now(),'M'));
+		
+		lista.add(1, new Persona("nuevoNif", "Pepe", 145, LocalDate.now(),'M'));
+
+		
+		
+		System.out.println(lista.get(1).getNombre());
+		
+		System.out.println("fin listas");
 	}
-	
-	
-	
-	
-	
+
+	// 13 dic 2018 Intro a la Herencia
+
+	// crear un Estudiante
+
+	public void crearEstudiante() {
+
+		Estudiante estudiante = new Estudiante("43781230V", "Pedro Garcia", 153, LocalDate.now(), 'M');
+
+	}
+
 	private Persona[] personas;
-	
-	/*public void hijosPersonas() {
-		for (int i = 0; i < personas.length; i++) {
-			Persona[] hijos = personas[i].getHijosBiologicos();	
-			System.out.println("PROGENITOR -> " + personas[i].getNombre());
-			if ( hijos != null) {				
-				for (int j = 0; j < hijos.length; j++) {
-				      System.out.println("Hijo -> " + hijos[j].getNombre());	
-				}
-				
-			}
-			
-		}
-		
-	}*/
+
+	/*
+	 * public void hijosPersonas() { for (int i = 0; i < personas.length; i++) {
+	 * Persona[] hijos = personas[i].getHijosBiologicos();
+	 * System.out.println("PROGENITOR -> " + personas[i].getNombre()); if ( hijos !=
+	 * null) { for (int j = 0; j < hijos.length; j++) {
+	 * System.out.println("Hijo -> " + hijos[j].getNombre()); }
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 	// 27 noviembre 18
 
 	public int[] matrizToArrayOrdenado(int[][] matriz) {
 		int[] result = new int[1];
 		ordenaFilasMatriz(matriz);
-		for (int i = 0; i < matriz.length; i++) 
+		for (int i = 0; i < matriz.length; i++)
 			// Se crea un nuevo array con la unión de matriz[i] y result
 			// Y se guarda en result
 			result = mezclaListasOrdenadas(result, matriz[i]);
@@ -75,13 +92,14 @@ public class Ejercicios {
 		}
 
 	}
+
 	public int[] invertirLista2(int[] lista) {
-		int[] resultado= new int[lista.length];
-		for (int i = 0; i < lista.length; i++) 		
-			resultado[lista.length -1 - i] = lista[i];
+		int[] resultado = new int[lista.length];
+		for (int i = 0; i < lista.length; i++)
+			resultado[lista.length - 1 - i] = lista[i];
 		return resultado;
 	}
-	
+
 	// 2. Dadas dos listas PREVIAMENTE ORDENADAS, se pide obtener la lista MEZCLA de
 	// ambas
 
@@ -103,16 +121,15 @@ public class Ejercicios {
 					j++;
 				}
 				k++;
-				
+
 			} catch (ArrayIndexOutOfBoundsException excepcion) {
-				
+
 				if (i == l1.length) // fin de l1..
 					l1[--i] = Integer.MAX_VALUE;
 				else
 					l2[--j] = Integer.MAX_VALUE;
 			}
-			
-			
+
 		}
 		return resultado;
 
@@ -528,7 +545,6 @@ public class Ejercicios {
 			} catch (NumberFormatException e) {
 				resultado[i] = -1;
 			}
-		
 
 		return resultado;
 	}
@@ -536,32 +552,22 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
+		
+		ejercicios.introListas();
+		System.exit(0);
+		
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
 		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
 		// ejercicios.invertirLista(lista2);
-		//int[] listaInvertida = ejercicios.invertirLista2(lista2);
+		// int[] listaInvertida = ejercicios.invertirLista2(lista2);
 		ejercicios.crearEstudiante();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
 
 		int[] vector = ejercicios.matrizToArrayOrdenado(datos);
-		//ejercicios.ordenaFilasMatriz(datos);
+		// ejercicios.ordenaFilasMatriz(datos);
 
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 
