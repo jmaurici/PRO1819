@@ -13,20 +13,43 @@ public class Ejercicios {
 
 	public void introListas() {
 
-		ArrayList<Persona> lista;
+		ArrayList<Object> listaGenerica = new ArrayList<Object>(10);
+		//System.out.println("Lista generica tiene " + listaGenerica.size());
+		
+		listaGenerica.add("Gran Canaria");
+		String nombre = "Pepe";
+		listaGenerica.add(nombre);
+		listaGenerica.add(123);
+		listaGenerica.add(Math.PI);
+		listaGenerica.add(123.5f);
+		listaGenerica.add(true);
+		listaGenerica.add(new Persona());
+		
+		//for (Object elemento: listaGenerica)
+			//System.out.println(elemento);
+		
+		for (int i = 0; i < listaGenerica.size(); i++) 
+			System.out.println(listaGenerica.get(i));
+		
+	
+	//	System.out.println("Lista generica tiene " + listaGenerica.size());
+		
+		ArrayList<Persona> listaPersonas;
 
-		lista = new ArrayList<Persona>();
-		
-		lista.add(new Persona());
-		
-		lista.add(new Persona("44321654F", "Pepe", 145, LocalDate.now(),'M'));
-		
-		lista.add(1, new Persona("nuevoNif", "Pepe", 145, LocalDate.now(),'M'));
+		listaPersonas = new ArrayList<Persona>();
 
-		
-		
-		System.out.println(lista.get(1).getNombre());
-		
+		Persona persona1 = new Persona();
+
+		listaPersonas.add(persona1);
+
+		listaPersonas.add(new Persona());
+
+		listaPersonas.add(new Persona("44321654F", "Pepe", 145, LocalDate.now(), 'M'));
+
+		listaPersonas.add(1, new Persona("nuevoNif", "Pepe", 145, LocalDate.now(), 'M'));
+
+	//	System.out.println(listaPersonas.get(1).getNombre());
+
 		System.out.println("fin listas");
 	}
 
@@ -552,10 +575,10 @@ public class Ejercicios {
 	public static void main(String[] args) {
 
 		Ejercicios ejercicios = new Ejercicios();
-		
+
 		ejercicios.introListas();
 		System.exit(0);
-		
+
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
