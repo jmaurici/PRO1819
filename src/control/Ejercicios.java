@@ -2,20 +2,50 @@ package control;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.Set;
 
 import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 9/1/2019
+	public void introMapas() {
+		// DECLARAR EL MAPA (HashMap) que almacena
+		// objetos de la clase Estudiante, La clave es el nif..
+		// INICIALIZAR EL MAPA
+		// INSERTAR (put) una serie de estudiantes.
+		HashMap<String, Estudiante> mapa;
+
+		mapa = new HashMap<String, Estudiante>();
+		Estudiante est1 = new Estudiante("123", "pepe", 124, LocalDate.now(), 'M');
+
+		mapa.put(est1.getNif(), est1);
+		mapa.put("12345678F", new Estudiante());
+		mapa.put("3", new Estudiante("3", "Maria", 135, LocalDate.now(), 'F'));
+		mapa.put("001", new Estudiante("001", "Isabel", 135, LocalDate.now(), 'F'));
+		if (!mapa.containsKey("3"))
+		    mapa.put("3", null);
+
+		// recorrer mapa
+		
+		Set<String> clavesMapa = mapa.keySet();
+		
+		for(String clave : clavesMapa)
+		   System.out.println(mapa.get(clave).getNombre());	
+		
+		
+		System.out.println("fin mapa");
+	}
 
 	// 18 diciembre 18
 
 	public void introListas() {
 
-		ArrayList<Object> listaGenerica = new ArrayList<Object>(10);
-		//System.out.println("Lista generica tiene " + listaGenerica.size());
-		
+		ArrayList<Object> listaGenerica = new ArrayList<Object>();
+		// System.out.println("Lista generica tiene " + listaGenerica.size());
+
 		listaGenerica.add("Gran Canaria");
 		String nombre = "Pepe";
 		listaGenerica.add(nombre);
@@ -24,16 +54,15 @@ public class Ejercicios {
 		listaGenerica.add(123.5f);
 		listaGenerica.add(true);
 		listaGenerica.add(new Persona());
-		
-		//for (Object elemento: listaGenerica)
-			//System.out.println(elemento);
-		
-		for (int i = 0; i < listaGenerica.size(); i++) 
+
+		// for (Object elemento: listaGenerica)
+		// System.out.println(elemento);
+
+		for (int i = 0; i < listaGenerica.size(); i++)
 			System.out.println(listaGenerica.get(i));
-		
-	
-	//	System.out.println("Lista generica tiene " + listaGenerica.size());
-		
+
+		// System.out.println("Lista generica tiene " + listaGenerica.size());
+
 		ArrayList<Persona> listaPersonas;
 
 		listaPersonas = new ArrayList<Persona>();
@@ -48,7 +77,7 @@ public class Ejercicios {
 
 		listaPersonas.add(1, new Persona("nuevoNif", "Pepe", 145, LocalDate.now(), 'M'));
 
-	//	System.out.println(listaPersonas.get(1).getNombre());
+		// System.out.println(listaPersonas.get(1).getNombre());
 
 		System.out.println("fin listas");
 	}
@@ -576,8 +605,9 @@ public class Ejercicios {
 
 		Ejercicios ejercicios = new Ejercicios();
 
-		ejercicios.introListas();
-		System.exit(0);
+		// ejercicios.introListas();
+		ejercicios.introMapas();
+		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
