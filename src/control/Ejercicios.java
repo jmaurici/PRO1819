@@ -1,5 +1,9 @@
 package control;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +14,28 @@ import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+
+	// 10 enero 2019
+
+	public void leerFichero(String rutaFichero) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaFichero));
+			String registro ;
+			while ((registro =fichero.readLine() ) != null) {
+				System.out.println(registro);
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+			
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}		
+	}
+
 	// 9/1/2019
 	public void introMapas() {
 		// DECLARAR EL MAPA (HashMap) que almacena
@@ -26,16 +52,15 @@ public class Ejercicios {
 		mapa.put("3", new Estudiante("3", "Maria", 135, LocalDate.now(), 'F'));
 		mapa.put("001", new Estudiante("001", "Isabel", 135, LocalDate.now(), 'F'));
 		if (!mapa.containsKey("3"))
-		    mapa.put("3", null);
+			mapa.put("3", null);
 
 		// recorrer mapa
-		
+
 		Set<String> clavesMapa = mapa.keySet();
-		
-		for(String clave : clavesMapa)
-		   System.out.println(mapa.get(clave).getNombre());	
-		
-		
+
+		for (String clave : clavesMapa)
+			System.out.println(mapa.get(clave).getNombre());
+
 		System.out.println("fin mapa");
 	}
 
@@ -606,9 +631,43 @@ public class Ejercicios {
 		Ejercicios ejercicios = new Ejercicios();
 
 		// ejercicios.introListas();
-		ejercicios.introMapas();
+		//ejercicios.introMapas();
+		ejercicios.leerFichero("ficheros/datos.txt");
 		System.exit(0); // finaliza el programa ...
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
