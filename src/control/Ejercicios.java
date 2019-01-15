@@ -26,13 +26,21 @@ public class Ejercicios {
 			listaPersonas = new ArrayList<Persona>();
 			
 			String registro;
+			Persona persona;
 			while ((registro = fichero.readLine()) != null) {
 				//System.out.println(registro);
 
 				// romper la cadena registro
 				String[] campos = registro.split(separador);
+				for (int i = 0; i < campos.length; i++) 
+					System.out.print(campos[i]+ " , ");
+				System.out.println("");
+			
+				// crear objeto de la clase Persona
+				// añadirlo a la listaPersonas
+				persona = new Persona(campos[0], campos[1], Integer.parseInt(campos[2]), campos[3], campos[4].charAt(0));
 				
-				
+				listaPersonas.add(persona);				
 
 			}
 			fichero.close();
@@ -668,7 +676,8 @@ public class Ejercicios {
 
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
-		ejercicios.leerFichero("ficheros/datos.txt");
+		//ejercicios.leerFichero("ficheros/datos.txt");
+		ArrayList<Persona> listaPersonas = ejercicios.creaListaPersonas("ficheros/personas.txt", "##");
 		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
@@ -735,7 +744,7 @@ public class Ejercicios {
 		// ejercicios.imprimeAleatorios(6, 1, 6);
 		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
 
-		Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
+		//Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
 		// factorial(5);
 
 		// serieFibonacci(8);
