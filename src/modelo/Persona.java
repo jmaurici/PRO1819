@@ -7,19 +7,19 @@ public class Persona {
 	private String nif;
 	private String nombre;
 	private int longitudPaso;
-	private LocalDate fecha_nac; // Clase "LocalDate" manejar fechas
+	private String fecha_nac; // AAAAMMDD
 	private char sexo; // 'M' 'F'
    
 	public Persona() {
 		super();
 		this.nif = "12345678F";
 		this.nombre = "Anónimo";
-		this.fecha_nac = LocalDate.now();
+		this.fecha_nac = LocalDate.now().toString();
 		longitudPaso = 33;
 
 	}
 
-	public Persona(String nif, String nombre, int longitudPaso, LocalDate fecha_nac, char sexo) {
+	public Persona(String nif, String nombre, int longitudPaso, String fecha_nac, char sexo) {
 		super();
 		this.nif = nif;
 		this.nombre = nombre;
@@ -77,11 +77,11 @@ public class Persona {
 		this.longitudPaso = longitudPaso;
 	}
 
-	public LocalDate getFecha_nac() {
+	public String getFecha_nac() {
 		return fecha_nac;
 	}
 
-	public void setFecha_nac(LocalDate fecha_nac) {
+	public void setFecha_nac(String fecha_nac) {
 		this.fecha_nac = fecha_nac;
 	}
 }

@@ -15,25 +15,61 @@ import modelo.Persona;
 
 public class Ejercicios {
 
+	// 14 enero 2019
+
+	public ArrayList<Persona> creaListaPersonas(String rutaFichero, String separador) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaFichero));
+			
+			ArrayList<Persona> listaPersonas;
+			listaPersonas = new ArrayList<Persona>();
+			
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
+				//System.out.println(registro);
+
+				// romper la cadena registro
+				String[] campos = registro.split(separador);
+				
+				
+
+			}
+			fichero.close();
+			System.out.println("Creada la lista de personas...");
+			
+			return listaPersonas;
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+		return null;
+	}
 	// 10 enero 2019
 
 	public void leerFichero(String rutaFichero) {
 		try {
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
-			String registro ;
-			while ((registro =fichero.readLine() ) != null) {
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
 				System.out.println(registro);
+
+				// ................
+
 			}
 			fichero.close();
 			System.out.println("Fin de la lectura del fichero");
-			
+
 		} catch (FileNotFoundException excepcion) {
 			System.out.println("fichero no encontrado");
 
 		} catch (IOException e) {
 			System.out.println("IO Excepcion");
-		}		
+		}
 	}
 
 	// 9/1/2019
@@ -45,12 +81,12 @@ public class Ejercicios {
 		HashMap<String, Estudiante> mapa;
 
 		mapa = new HashMap<String, Estudiante>();
-		Estudiante est1 = new Estudiante("123", "pepe", 124, LocalDate.now(), 'M');
+		Estudiante est1 = new Estudiante("123", "pepe", 124, "19991001", 'M');
 
 		mapa.put(est1.getNif(), est1);
 		mapa.put("12345678F", new Estudiante());
-		mapa.put("3", new Estudiante("3", "Maria", 135, LocalDate.now(), 'F'));
-		mapa.put("001", new Estudiante("001", "Isabel", 135, LocalDate.now(), 'F'));
+		mapa.put("3", new Estudiante("3", "Maria", 135, "19850915", 'F'));
+		mapa.put("001", new Estudiante("001", "Isabel", 135, "20121121", 'F'));
 		if (!mapa.containsKey("3"))
 			mapa.put("3", null);
 
@@ -98,9 +134,9 @@ public class Ejercicios {
 
 		listaPersonas.add(new Persona());
 
-		listaPersonas.add(new Persona("44321654F", "Pepe", 145, LocalDate.now(), 'M'));
+		listaPersonas.add(new Persona("44321654F", "Pepe", 145, "19790125", 'M'));
 
-		listaPersonas.add(1, new Persona("nuevoNif", "Pepe", 145, LocalDate.now(), 'M'));
+		listaPersonas.add(1, new Persona("nuevoNif", "Pepe", 145, "20001021", 'M'));
 
 		// System.out.println(listaPersonas.get(1).getNombre());
 
@@ -113,7 +149,7 @@ public class Ejercicios {
 
 	public void crearEstudiante() {
 
-		Estudiante estudiante = new Estudiante("43781230V", "Pedro Garcia", 153, LocalDate.now(), 'M');
+		Estudiante estudiante = new Estudiante("43781230V", "Pedro Garcia", 153, "19971225", 'M');
 
 	}
 
@@ -631,43 +667,10 @@ public class Ejercicios {
 		Ejercicios ejercicios = new Ejercicios();
 
 		// ejercicios.introListas();
-		//ejercicios.introMapas();
+		// ejercicios.introMapas();
 		ejercicios.leerFichero("ficheros/datos.txt");
 		System.exit(0); // finaliza el programa ...
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
