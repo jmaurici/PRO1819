@@ -25,26 +25,19 @@ public class Ejercicios {
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
 			String registro;
-
+			Integer numVeces = new Integer(1);
 			while ((registro = fichero.readLine()) != null) {
-//				System.out.println(registro);
-				// romper la cadena registro
+
 				String[] campos = registro.split("#");
-				// ver si el eLocal y el visitante están ya en el mapa
-				if (!mapaEquipos.containsKey(campos[2]))
-					mapaEquipos.put(campos[2], 0);
-				if (!mapaEquipos.containsKey(campos[4]))
-					mapaEquipos.put(campos[4], 0);
-				// si no existe se añade con put al mapa..
-				// ver como se implemente un contador sobre la clase Integer.
-				// sumar 1 al contador Integer
-				int contador = (int)mapaEquipos.get(campos[2]);
-				contador++;
-				mapaEquipos.replace(campos[2], contador);
-				contador = (int)mapaEquipos.get(campos[4]);
-				contador++;
-				mapaEquipos.replace(campos[4], contador);
-				
+				for (int i = 2; i < campos.length; i += 2) {
+					if (mapaEquipos.containsKey(campos[i])) {
+						mapaEquipos.replace(campos[i], (mapaEquipos.get(campos[i]) + numVeces));
+						numVeces = 1;
+					} else {
+						mapaEquipos.put(campos[i], numVeces);
+					}
+				}
+
 			}
 			fichero.close();
 			return mapaEquipos;
