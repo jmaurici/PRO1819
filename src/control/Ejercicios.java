@@ -14,6 +14,49 @@ import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 22 enero 2019
+	// Comprobar partidos.txt
+
+	public HashMap<String, Integer> comprobarPartidos(String rutaFichero) {
+		try {
+			HashMap<String, Integer> mapaEquipos;
+			mapaEquipos = new HashMap<String, Integer>();
+
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaFichero));
+			String registro;
+
+			while ((registro = fichero.readLine()) != null) {
+//				System.out.println(registro);
+				// romper la cadena registro
+				String[] campos = registro.split("#");
+				// ver si el eLocal y el visitante están ya en el mapa
+				if (!mapaEquipos.containsKey(campos[2]))
+					mapaEquipos.put(campos[2], 0);
+				if (!mapaEquipos.containsKey(campos[4]))
+					mapaEquipos.put(campos[4], 0);
+				// si no existe se añade con put al mapa..
+				// ver como se implemente un contador sobre la clase Integer.
+				// sumar 1 al contador Integer
+				int contador = (int)mapaEquipos.get(campos[2]);
+				contador++;
+				mapaEquipos.replace(campos[2], contador);
+				contador = (int)mapaEquipos.get(campos[4]);
+				contador++;
+				mapaEquipos.replace(campos[4], contador);
+				
+			}
+			fichero.close();
+			return mapaEquipos;
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+		return null;
+	}
 
 	// 14 enero 2019
 
@@ -21,31 +64,32 @@ public class Ejercicios {
 		try {
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
-			
+
 			ArrayList<Persona> listaPersonas;
 			listaPersonas = new ArrayList<Persona>();
-			
+
 			String registro;
 			Persona persona;
 			while ((registro = fichero.readLine()) != null) {
-				//System.out.println(registro);
+				// System.out.println(registro);
 
 				// romper la cadena registro
 				String[] campos = registro.split(separador);
-				for (int i = 0; i < campos.length; i++) 
-					System.out.print(campos[i]+ " , ");
+				for (int i = 0; i < campos.length; i++)
+					System.out.print(campos[i] + " , ");
 				System.out.println("");
-			
+
 				// crear objeto de la clase Persona
 				// añadirlo a la listaPersonas
-				persona = new Persona(campos[0], campos[1], Integer.parseInt(campos[2]), campos[3], campos[4].charAt(0));
-				
-				listaPersonas.add(persona);				
+				persona = new Persona(campos[0], campos[1], Integer.parseInt(campos[2]), campos[3],
+						campos[4].charAt(0));
+
+				listaPersonas.add(persona);
 
 			}
 			fichero.close();
 			System.out.println("Creada la lista de personas...");
-			
+
 			return listaPersonas;
 
 		} catch (FileNotFoundException excepcion) {
@@ -676,8 +720,11 @@ public class Ejercicios {
 
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
-		//ejercicios.leerFichero("ficheros/datos.txt");
-		ArrayList<Persona> listaPersonas = ejercicios.creaListaPersonas("ficheros/personas.txt", "##");
+		// ejercicios.leerFichero("ficheros/datos.txt");
+		// ArrayList<Persona> listaPersonas =
+		// ejercicios.creaListaPersonas("ficheros/personas.txt", "##");
+		HashMap<String, Integer> equipos = ejercicios.comprobarPartidos("ficheros/partidos.txt");
+
 		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
@@ -744,7 +791,7 @@ public class Ejercicios {
 		// ejercicios.imprimeAleatorios(6, 1, 6);
 		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
 
-		//Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
+		// Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
 		// factorial(5);
 
 		// serieFibonacci(8);
