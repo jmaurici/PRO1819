@@ -17,6 +17,34 @@ import modelo.Persona;
 public class Ejercicios {
 	// 23 enero 2019
 
+	public void mostrarNumeroPartidosJugados(String rutaPartidos) {
+
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaPartidos));
+			String registro;
+			int contador = 0;
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				if (!campos[3].equals("")) {
+					Integer.parseInt(campos[3]);
+					contador++;
+					
+				} else
+					break;			
+			}
+			fichero.close();
+			System.out.println(contador);
+			System.out.println("Fin de la lectura del fichero");
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+	}
+
 	// Mapa de equipos
 
 	public HashMap<String, Equipo> crearMapaEquipos(String rutaFichero) {
@@ -775,7 +803,10 @@ public class Ejercicios {
 		// ejercicios.comprobarPartidos("ficheros/partidos.txt");
 		// ArrayList<Equipo> equipos =
 		// ejercicios.crearListaEquipos("ficheros/equipos.txt");
-		HashMap<String, Equipo> equipos = ejercicios.crearMapaEquipos("ficheros/equipos.txt");
+		// HashMap<String, Equipo> equipos =
+		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
+		ejercicios.mostrarNumeroPartidosJugados("ficheros/partidos.txt");
+
 		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
