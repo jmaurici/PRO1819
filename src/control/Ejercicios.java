@@ -10,12 +10,67 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
+import modelo.Equipo;
 import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 23 enero 2019
+
+	// Mapa de equipos
+
+	public HashMap<String, Equipo> crearMapaEquipos(String rutaFichero) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaFichero));
+			String registro;
+			Equipo equipo = null;
+			HashMap<String, Equipo> equipos = new HashMap<String, Equipo>();
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				equipo = new Equipo(Integer.parseInt(campos[0]), campos[1], campos[2]);
+				equipos.put(campos[1], equipo);
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+			return equipos;
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+		return null;
+	}
+	// lista de equipos
+
+	public ArrayList<Equipo> crearListaEquipos(String rutaFichero) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaFichero));
+			String registro;
+			Equipo equipo = null;
+			ArrayList<Equipo> equipos = new ArrayList<Equipo>();
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				equipo = new Equipo(Integer.parseInt(campos[0]), campos[1], campos[2]);
+				equipos.add(equipo);
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+			return equipos;
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+		return null;
+	}
+
 	// 22 enero 2019
-	// Comprobar partidos.txt
 
 	public HashMap<String, Integer> comprobarPartidos(String rutaFichero) {
 		try {
@@ -716,8 +771,11 @@ public class Ejercicios {
 		// ejercicios.leerFichero("ficheros/datos.txt");
 		// ArrayList<Persona> listaPersonas =
 		// ejercicios.creaListaPersonas("ficheros/personas.txt", "##");
-		HashMap<String, Integer> equipos = ejercicios.comprobarPartidos("ficheros/partidos.txt");
-
+		// HashMap<String, Integer> equipos =
+		// ejercicios.comprobarPartidos("ficheros/partidos.txt");
+		// ArrayList<Equipo> equipos =
+		// ejercicios.crearListaEquipos("ficheros/equipos.txt");
+		HashMap<String, Equipo> equipos = ejercicios.crearMapaEquipos("ficheros/equipos.txt");
 		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
