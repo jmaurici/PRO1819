@@ -15,6 +15,43 @@ import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 24 enero 2019
+	public HashMap<String, ArrayList<Integer>> resultadosEquipos(String rutaPartidos)
+	// devuelve un mapa de equipos
+	// por cada equipo hay una lista de contadores
+	// que representan VICTORIAS, EMPATES Y DERROTAS
+	{
+		return null;
+	}
+
+	public void mostrarNumeroPartidosJugadosTry(String rutaPartidos) {
+		BufferedReader fichero = null;
+		int contador = 0;
+		try {
+
+			fichero = new BufferedReader(new FileReader(rutaPartidos));
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				try {
+					Integer.parseInt(campos[3]);
+					contador++;
+				} catch (NumberFormatException e) {
+					break;
+				}
+			}
+			fichero.close();
+			System.out.println(contador);
+			System.out.println("Fin de la lectura del fichero");
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+	}
+
 	// 23 enero 2019
 
 	public void mostrarNumeroPartidosJugados(String rutaPartidos) {
@@ -29,9 +66,9 @@ public class Ejercicios {
 				if (!campos[3].equals("")) {
 					Integer.parseInt(campos[3]);
 					contador++;
-					
+
 				} else
-					break;			
+					break;
 			}
 			fichero.close();
 			System.out.println(contador);
@@ -104,20 +141,16 @@ public class Ejercicios {
 		try {
 			HashMap<String, Integer> mapaEquipos;
 			mapaEquipos = new HashMap<String, Integer>();
-
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
 			String registro;
-			Integer numVeces = new Integer(1);
 			while ((registro = fichero.readLine()) != null) {
-
 				String[] campos = registro.split("#");
 				for (int i = 2; i < campos.length; i += 2) {
 					if (mapaEquipos.containsKey(campos[i])) {
-						mapaEquipos.replace(campos[i], (mapaEquipos.get(campos[i]) + numVeces));
-						numVeces = 1;
+						mapaEquipos.replace(campos[i], (mapaEquipos.get(campos[i]) + 1));
 					} else {
-						mapaEquipos.put(campos[i], numVeces);
+						mapaEquipos.put(campos[i], 1);
 					}
 				}
 
@@ -800,12 +833,13 @@ public class Ejercicios {
 		// ArrayList<Persona> listaPersonas =
 		// ejercicios.creaListaPersonas("ficheros/personas.txt", "##");
 		// HashMap<String, Integer> equipos =
-		// ejercicios.comprobarPartidos("ficheros/partidos.txt");
+		// HashMap<String, Integer> x =
+		HashMap<String, Integer> x = ejercicios.comprobarPartidos("ficheros/partidos.txt");
 		// ArrayList<Equipo> equipos =
-		// ejercicios.crearListaEquipos("ficheros/equipos.txt");
+		// ArrayList<Equipo> x = ejercicios.crearListaEquipos("ficheros/equipos.txt");
 		// HashMap<String, Equipo> equipos =
 		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
-		ejercicios.mostrarNumeroPartidosJugados("ficheros/partidos.txt");
+		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
 
 		System.exit(0); // finaliza el programa ...
 
