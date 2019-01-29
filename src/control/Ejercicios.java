@@ -16,6 +16,20 @@ import modelo.Persona;
 
 public class Ejercicios {
 	// 29 enero 2019
+	
+	public void muestraPuntosEquipos (HashMap<String, ArrayList<Integer>> resultados)
+	{
+		// recorrer el HashMap... 
+		// obtenemos la lista de claves (K)			
+		for (String clave : resultados.keySet()) {
+			ArrayList<Integer> datos = resultados.get(clave);
+			int puntos = datos.get(0)*3 + datos.get(1);
+			System.out.println(clave + " => " + puntos);
+		}
+		
+		
+	}
+	
 	public HashMap<String, ArrayList<Integer>> resultadosEquipos(String rutaPartidos)
 	// devuelve un mapa de equipos
 	// por cada equipo hay una lista de contadores
@@ -893,6 +907,8 @@ public class Ejercicios {
 		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
 		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
 		HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		ejercicios.muestraPuntosEquipos(x);
+		
 		System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
