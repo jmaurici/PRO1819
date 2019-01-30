@@ -10,26 +10,50 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import modelo.Equipo;
 import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 30 enero 2019
+
+	// pruebita de SWING (MVC)
+
+	public void pruebaSWING() {
+		JFrame ventana;
+		ventana = new JFrame("Mi primer SWING");
+		JButton boton = new JButton("pulsaMe!");
+		JPanel panel = new JPanel();
+		ventana.add(panel);
+		
+		ArrayList<Equipo> equipos = this.crearListaEquipos("ficheros/equipos.txt");
+		
+		Equipo[] arrayEquipos = equipos.toArray(new Equipo[equipos.size()]);
+		
+		JComboBox lista = new JComboBox(arrayEquipos);
+		panel.add(lista);
+		panel.add(boton);
+		ventana.pack();
+		ventana.setVisible(true);
+	}
+
 	// 29 enero 2019
-	
-	public void muestraPuntosEquipos (HashMap<String, ArrayList<Integer>> resultados)
-	{
-		// recorrer el HashMap... 
-		// obtenemos la lista de claves (K)			
+
+	public void muestraPuntosEquipos(HashMap<String, ArrayList<Integer>> resultados) {
+		// recorrer el HashMap...
+		// obtenemos la lista de claves (K)
 		for (String clave : resultados.keySet()) {
 			ArrayList<Integer> datos = resultados.get(clave);
-			int puntos = datos.get(0)*3 + datos.get(1);
+			int puntos = datos.get(0) * 3 + datos.get(1);
 			System.out.println(clave + " => " + puntos);
 		}
-		
-		
 	}
-	
+
 	public HashMap<String, ArrayList<Integer>> resultadosEquipos(String rutaPartidos)
 	// devuelve un mapa de equipos
 	// por cada equipo hay una lista de contadores
@@ -889,9 +913,8 @@ public class Ejercicios {
 	}
 
 	public static void main(String[] args) {
-
 		Ejercicios ejercicios = new Ejercicios();
-
+		ejercicios.pruebaSWING();
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
 		// ejercicios.leerFichero("ficheros/datos.txt");
@@ -908,8 +931,8 @@ public class Ejercicios {
 		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
 		HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		ejercicios.muestraPuntosEquipos(x);
-		
-		System.exit(0); // finaliza el programa ...
+
+		// System.exit(0); // finaliza el programa ...
 
 		int[] lista1 = { 2, 4, 8, 9 };
 		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
@@ -927,36 +950,38 @@ public class Ejercicios {
 		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 
 		// int[] x = {78,34,1,34,54,29,3};
-		String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto", "alejandro" };
+		// String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto",
+		// "alejandro" };
 		// ejercicios.ordenaArrayCadenas(nombres);
-		int[] lista = ejercicios.generaListaAleatorios(1000, 1, 5000);
+		// int[] lista = ejercicios.generaListaAleatorios(1000, 1, 5000);
 		// ejercicios.ordenaArrayNumeros(lista);
 		// int[] monedas = ejercicios.desgloseMoneda(1234);
 		// ejercicios.listaDesgloseMoneda(3);
 		// System.out.println(ejercicios.esPrimo(99525));
 
-		int inicio = 500;
-		int cuantos = 5;
-		ejercicios.listarPrimos2(inicio, cuantos);
-
+		/*
+		 * int inicio = 500; int cuantos = 5; ejercicios.listarPrimos2(inicio, cuantos);
+		 */
 		// int[] numeros = ejercicios.listarPrimos3(inicio, cuantos);
 		// ejercicios.mostrarHMS();
 		// String[] datos = { "123", "8k8", "9811", "xyz" };
 		// int[] numeros = ejercicios.convierteCadenas(datos);
 
-		float[][] ventasYear = {
-				// hay 3 filas (vendedores) y 12 columnas (meses)
-				{ 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
-				{ 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f },
-				{ 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f }
-
-		};
-		float[] resumenVendedor;
+		/*
+		 * float[][] ventasYear = { // hay 3 filas (vendedores) y 12 columnas (meses) {
+		 * 12.5f, 13.5f, 8.5f, 5.0f, 10.5f, 9.5f, 20.5f, 10.5f, 4.0f, 6.5f, 5.5f, 6.0f
+		 * }, { 10.5f, 15.5f, 3.5f, 2.0f, 10.5f, 15.5f, 2.5f, 10.5f, 4.0f, 6.5f, 5.5f,
+		 * 6.0f }, { 11.5f, 10.5f, 4.5f, 1.0f, 9.5f, 5.5f, 3.5f, 10.5f, 4.0f, 6.5f,
+		 * 5.5f, 6.0f }
+		 * 
+		 * };
+		 */
+		// float[] resumenVendedor;
 		// resumenVendedor = ejercicios.resumenVendedor(ventasYear);
 		// float[] reumenPorMes = ejercicios.resumenVentasPorMes(ventasYear);
 		// crear e inicializar un array, varias opciones.
-		float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
-		float saldoI = 100.0f;
+		// float[] movs = { 10.0f, -5.0f, 20.0f, -10.0f };
+		// float saldoI = 100.0f;
 		// ejercicios.pruebaCadenas();
 		// System.out.println("Saldo final :"
 		// + ejercicios.calcularSaldoFinal(saldoI, movs));
@@ -967,13 +992,13 @@ public class Ejercicios {
 		 * movs[0] = 10.0f; movs[1] = -5.0f; movs[2] = 20.5f; movs[3] = -10.5f;
 		 */
 
-		int a = 10, b = 17, c = 14, d = 11;
+		// int a = 10, b = 17, c = 14, d = 11;
 		// int menor= Ejercicios.calNumMenor(a, b, c, d);
-		int menor = ejercicios.calNumMenor(a, b, c, d);
+		// int menor = ejercicios.calNumMenor(a, b, c, d);
 		// System.out.println("el menor es : " + menor);
 
 		// ejercicios.imprimeAleatorios(6, 1, 6);
-		int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
+		// int[] estadisticaDados = ejercicios.generaEstadisticaAparicion(1000, 1, 6);
 
 		// Persona[] listaPersonas = ejercicios.creaListaPersonas(10);
 		// factorial(5);
@@ -998,6 +1023,7 @@ public class Ejercicios {
 		// juan = new Persona("4545455X", "Juan Luis", 47,null);
 		// Persona persona1 = new Persona();
 
-		System.out.println("Fin del programa");
+		// System.out.println("Fin del programa");
 	}
+
 }

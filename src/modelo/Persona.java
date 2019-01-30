@@ -28,7 +28,9 @@ public class Persona {
 		this.sexo = sexo;
 	}
 
-	
+	public String toString() {
+		return this.getNombre();
+	}
 	public char getSexo() {
 		return sexo;
 	}
