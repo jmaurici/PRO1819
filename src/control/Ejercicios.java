@@ -30,6 +30,24 @@ import modelo.Persona;
 public class Ejercicios {
 	// 5 de febrero 2019
 	
+	// Obtener un ArrayList ORDENADA por nombre LAARgo del equipo
+	// a partir de la lista obtenida en el método
+	//  crearListaEquipos
+	
+	
+public void equiposListaOrdenadaNombre(ArrayList<Equipo> equipos)
+	
+{
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
 	public void ordenarMapaPuntosEquipos (HashMap<String,Integer> puntosEquipos)
 	{
 		Set<Entry<String, Integer>> set = puntosEquipos.entrySet();
@@ -969,7 +987,7 @@ public class Ejercicios {
 		
 		
 		
-		ejercicios.pruebaSWING();
+		//ejercicios.pruebaSWING();
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
 		// ejercicios.leerFichero("ficheros/datos.txt");
@@ -980,11 +998,11 @@ public class Ejercicios {
 		// HashMap<String, Integer> x =
 		// ejercicios.comprobarPartidos("ficheros/partidos.txt");
 		// ArrayList<Equipo> equipos =
-		// ArrayList<Equipo> x = ejercicios.crearListaEquipos("ficheros/equipos.txt");
+		 ArrayList<Equipo> listaEquipos = ejercicios.crearListaEquipos("ficheros/equipos.txt");
 		// HashMap<String, Equipo> equipos =
 		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
 		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
-		HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		//HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
 
 		//ejercicios.muestraPuntosEquipos(x);
 
@@ -1079,7 +1097,7 @@ public class Ejercicios {
 		// juan = new Persona("4545455X", "Juan Luis", 47,null);
 		// Persona persona1 = new Persona();
 
-		//System.out.println("Fin del programa");
+		System.out.println("Fin del programa");
 	}
 
 }
