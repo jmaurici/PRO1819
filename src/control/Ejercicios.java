@@ -1,12 +1,20 @@
 package control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
@@ -20,9 +28,37 @@ import modelo.Estudiante;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 5 de febrero 2019
+	
+	public void ordenarMapaPuntosEquipos (HashMap<String,Integer> puntosEquipos)
+	{
+		Set<Entry<String, Integer>> set = puntosEquipos.entrySet();
+        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
+        {
+            public int compare( Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2 )
+            {
+                return (o2.getValue()).compareTo( o1.getValue() );
+            }
+        } );
+        for(Map.Entry<String, Integer> entry:list){
+            System.out.println(entry.getKey()+" ==== "+entry.getValue());
+        }
+	}
+	
+	
 	// 30 enero 2019
+	public HashMap<String, Integer> generaPuntosEquipos(HashMap<String, ArrayList<Integer>> partidos_GEP) {
+		HashMap<String, Integer> resultado = new HashMap<String, Integer>();
+		for (String clave : partidos_GEP.keySet()) {
+			ArrayList<Integer> datos = partidos_GEP.get(clave);
+			int puntos = datos.get(0) * 3 + datos.get(1);
+			resultado.put(clave, puntos);
+		}
+		return resultado;
+	}
 
-	// pruebita de SWING (MVC)
+	// pruebita de SWING (MVC) modelo vista controlador
 
 	public void pruebaSWING() {
 		JFrame ventana;
@@ -30,14 +66,22 @@ public class Ejercicios {
 		JButton boton = new JButton("pulsaMe!");
 		JPanel panel = new JPanel();
 		ventana.add(panel);
-		
+
 		ArrayList<Equipo> equipos = this.crearListaEquipos("ficheros/equipos.txt");
-		
+
 		Equipo[] arrayEquipos = equipos.toArray(new Equipo[equipos.size()]);
-		
+
 		JComboBox lista = new JComboBox(arrayEquipos);
 		panel.add(lista);
 		panel.add(boton);
+		boton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Pulsado");				
+			}
+		});
+		
 		ventana.pack();
 		ventana.setVisible(true);
 	}
@@ -914,6 +958,17 @@ public class Ejercicios {
 
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
+		
+		HashMap<String, ArrayList<Integer>> resultados = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		HashMap<String, Integer> puntosEquipos = ejercicios.generaPuntosEquipos(resultados);
+		
+		
+		//ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
+		
+		
+		
+		
+		
 		ejercicios.pruebaSWING();
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
@@ -930,7 +985,8 @@ public class Ejercicios {
 		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
 		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
 		HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
-		ejercicios.muestraPuntosEquipos(x);
+
+		//ejercicios.muestraPuntosEquipos(x);
 
 		// System.exit(0); // finaliza el programa ...
 
@@ -1023,7 +1079,7 @@ public class Ejercicios {
 		// juan = new Persona("4545455X", "Juan Luis", 47,null);
 		// Persona persona1 = new Persona();
 
-		// System.out.println("Fin del programa");
+		//System.out.println("Fin del programa");
 	}
 
 }
