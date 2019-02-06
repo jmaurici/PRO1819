@@ -1,5 +1,5 @@
 package modelo;
-public class Equipo {
+public class Equipo implements Comparable<Equipo> {
 	
 	private int id;
 	private String nombreCorto;
@@ -52,6 +52,17 @@ public class Equipo {
 	@Override
 	public String toString() {
 		return  nombre ;
+	}
+
+
+	@Override
+	public int compareTo(Equipo o) {
+		if (this.getId() < o.getId())
+			return 1;
+		else if (this.getId() > o.getId())
+			return -1;
+		else
+			return 0;
 	}
 
 }

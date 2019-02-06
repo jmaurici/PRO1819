@@ -29,42 +29,51 @@ import modelo.Persona;
 
 public class Ejercicios {
 	// 5 de febrero 2019
-	
+
 	// Obtener un ArrayList ORDENADA por nombre LAARgo del equipo
 	// a partir de la lista obtenida en el método
-	//  crearListaEquipos
-	
-	
-public void equiposListaOrdenadaNombre(ArrayList<Equipo> equipos)
-	
-{
-	
-	
-}
-	
-	
-	
-	
-	
-	
-	
-	public void ordenarMapaPuntosEquipos (HashMap<String,Integer> puntosEquipos)
-	{
-		Set<Entry<String, Integer>> set = puntosEquipos.entrySet();
-        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
-        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
-        {
-            public int compare( Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2 )
-            {
-                return (o2.getValue()).compareTo( o1.getValue() );
-            }
-        } );
-        for(Map.Entry<String, Integer> entry:list){
-            System.out.println(entry.getKey()+" ==== "+entry.getValue());
-        }
+	// crearListaEquipos
+
+	public ArrayList<Equipo> equiposListaOrdenadaNombre(String rutaFichero) {
+		ArrayList<Equipo> lista;
+		lista = crearListaEquipos("ficheros/equipos.txt");
+
+		/*lista.sort(new Comparator<Equipo>() {
+
+			
+			 * @Override public int compare(Equipo eq1, Equipo eq2) {
+			 * 
+			 * return eq1.getNombre().compareTo(eq2.getNombre()); }
+			 
+
+			public int compare(Equipo eq1, Equipo eq2) {
+
+				if (eq1.getId() < eq2.getId())
+					return 1;
+				else if (eq1.getId() > eq2.getId())
+					return -1;
+				else
+					return 0;
+			}
+		});*/
+		lista.sort(null);
+
+		return lista;
 	}
-	
-	
+
+	public void ordenarMapaPuntosEquipos(HashMap<String, Integer> puntosEquipos) {
+		Set<Entry<String, Integer>> set = puntosEquipos.entrySet();
+		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+				return (o2.getValue()).compareTo(o1.getValue());
+			}
+		});
+		for (Map.Entry<String, Integer> entry : list) {
+			System.out.println(entry.getKey() + " ==== " + entry.getValue());
+		}
+	}
+
 	// 30 enero 2019
 	public HashMap<String, Integer> generaPuntosEquipos(HashMap<String, ArrayList<Integer>> partidos_GEP) {
 		HashMap<String, Integer> resultado = new HashMap<String, Integer>();
@@ -93,13 +102,13 @@ public void equiposListaOrdenadaNombre(ArrayList<Equipo> equipos)
 		panel.add(lista);
 		panel.add(boton);
 		boton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Pulsado");				
+				System.out.println("Pulsado");
 			}
 		});
-		
+
 		ventana.pack();
 		ventana.setVisible(true);
 	}
@@ -976,18 +985,14 @@ public void equiposListaOrdenadaNombre(ArrayList<Equipo> equipos)
 
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
-		
+
 		HashMap<String, ArrayList<Integer>> resultados = ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		HashMap<String, Integer> puntosEquipos = ejercicios.generaPuntosEquipos(resultados);
-		
-		
-		//ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
-		
-		
-		
-		
-		
-		//ejercicios.pruebaSWING();
+
+		ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
+		// ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
+
+		// ejercicios.pruebaSWING();
 		// ejercicios.introListas();
 		// ejercicios.introMapas();
 		// ejercicios.leerFichero("ficheros/datos.txt");
@@ -998,13 +1003,15 @@ public void equiposListaOrdenadaNombre(ArrayList<Equipo> equipos)
 		// HashMap<String, Integer> x =
 		// ejercicios.comprobarPartidos("ficheros/partidos.txt");
 		// ArrayList<Equipo> equipos =
-		 ArrayList<Equipo> listaEquipos = ejercicios.crearListaEquipos("ficheros/equipos.txt");
+		// ArrayList<Equipo> listaEquipos =
+		// ejercicios.crearListaEquipos("ficheros/equipos.txt");
 		// HashMap<String, Equipo> equipos =
 		// ejercicios.crearMapaEquipos("ficheros/equipos.txt");
 		// ejercicios.mostrarNumeroPartidosJugadosTry("ficheros/partidos.txt");
-		//HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		// HashMap<String, ArrayList<Integer>> x =
+		// ejercicios.resultadosEquipos("ficheros/partidos.txt");
 
-		//ejercicios.muestraPuntosEquipos(x);
+		// ejercicios.muestraPuntosEquipos(x);
 
 		// System.exit(0); // finaliza el programa ...
 
