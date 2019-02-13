@@ -25,9 +25,82 @@ import javax.swing.JPanel;
 
 import modelo.Equipo;
 import modelo.Estudiante;
+import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
+	// 13 febrero
+	public void actualizaEquipos(Partido partido, ArrayList<Equipo> equipos)
+	{
+		/*if (gL.compareTo(gV) > 0) {// gana Local
+		equipos.get(eL).set(0, equipos.get(eL).get(0) + 1);
+		equipos.get(eV).set(2, equipos.get(eV).get(2) + 1);
+
+	} else if (gL.compareTo(gV) < 0) // gana Visitante
+	{// gana Local
+		equipos.get(eL).set(2, equipos.get(eL).get(2) + 1);
+		equipos.get(eV).set(0, equipos.get(eV).get(0) + 1);
+	} else { // empate
+
+		equipos.get(eL).set(1, equipos.get(eL).get(1) + 1);
+		equipos.get(eV).set(1, equipos.get(eV).get(1) + 1);
+	}
+	*/	
+	}
+	public Partido creaPartido(String linea) {
+        Partido partido = new Partido();
+		String[] campos = linea.split("#");
+		partido.seteL(campos[2]);
+		partido.seteV(campos[4]);
+		
+		partido.setId(Integer.parseInt(campos[0]));
+		partido.setId(Integer.parseInt(campos[1]));
+		
+		try {
+			partido.setId(Integer.parseInt(campos[3]));
+			partido.setId(Integer.parseInt(campos[5]));
+		} catch (NumberFormatException e) {
+			return null;
+		}
+		
+		return partido;
+
+	}
+
+	public ArrayList<Equipo> generaClasificacion(String rutaPartidos, String rutaEquipos) {
+		try {
+			// crear lista equipos desde fichero equipos.txt
+			ArrayList<Equipo> resultado = crearListaEquipos(rutaEquipos);
+			//
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaPartidos));
+			String registro;
+			Partido partido;
+				while ((registro = fichero.readLine()) != null) {
+				
+				 partido = creaPartido(registro);	
+				if (partido == null) // ultimo partido jugado..
+					break;
+					// actualiza lista Equipos
+                  actualizaEquipos (partido,resultado);
+				
+
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+			
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+		return null;
+
+		return resultado;
+	}
+
 	// 5 de febrero 2019
 
 	// Obtener un ArrayList ORDENADA por nombre LAARgo del equipo
@@ -38,27 +111,24 @@ public class Ejercicios {
 		ArrayList<Equipo> lista;
 		lista = crearListaEquipos("ficheros/equipos.txt");
 
-		/*lista.sort(new Comparator<Equipo>() {
-
-			
-			 * @Override public int compare(Equipo eq1, Equipo eq2) {
-			 * 
-			 * return eq1.getNombre().compareTo(eq2.getNombre()); }
-			 
-
-			public int compare(Equipo eq1, Equipo eq2) {
-
-				if (eq1.getId() < eq2.getId())
-					return 1;
-				else if (eq1.getId() > eq2.getId())
-					return -1;
-				else
-					return 0;
-			}
-		});*/
+		/*
+		 * lista.sort(new Comparator<Equipo>() {
+		 * 
+		 * 
+		 * @Override public int compare(Equipo eq1, Equipo eq2) {
+		 * 
+		 * return eq1.getNombre().compareTo(eq2.getNombre()); }
+		 * 
+		 * 
+		 * public int compare(Equipo eq1, Equipo eq2) {
+		 * 
+		 * if (eq1.getId() < eq2.getId()) return 1; else if (eq1.getId() > eq2.getId())
+		 * return -1; else return 0; } });
+		 */
 		lista.sort(null);
 
 		return lista;
+		
 	}
 
 	public void ordenarMapaPuntosEquipos(HashMap<String, Integer> puntosEquipos) {
@@ -280,6 +350,12 @@ public class Ejercicios {
 			while ((registro = fichero.readLine()) != null) {
 				String[] campos = registro.split("#");
 				equipo = new Equipo(Integer.parseInt(campos[0]), campos[1], campos[2]);
+				equipo.setGc(0);
+				equipo.setGf(0);
+				equipo.setPe(0);
+				equipo.setPg(0);
+				equipo.setPp(0);
+
 				equipos.add(equipo);
 			}
 			fichero.close();
@@ -986,8 +1062,8 @@ public class Ejercicios {
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
 
-		HashMap<String, ArrayList<Integer>> resultados = ejercicios.resultadosEquipos("ficheros/partidos.txt");
-		HashMap<String, Integer> puntosEquipos = ejercicios.generaPuntosEquipos(resultados);
+	//	HashMap<String, ArrayList<Integer>> resultados = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		//HashMap<String, Integer> puntosEquipos = ejercicios.generaPuntosEquipos(resultados);
 
 		ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
 		// ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
@@ -1021,7 +1097,7 @@ public class Ejercicios {
 		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
 		// ejercicios.invertirLista(lista2);
 		// int[] listaInvertida = ejercicios.invertirLista2(lista2);
-		ejercicios.crearEstudiante();
+		//ejercicios.crearEstudiante();
 
 		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
 
