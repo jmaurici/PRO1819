@@ -4,7 +4,7 @@ public class Equipo implements Comparable<Equipo> {
 	private int id;
 	private String nombreCorto;
 	private String nombre;
-	
+	private int puntos;
 	private int pg;
 	private int pe;
 	private int pp;
@@ -21,6 +21,16 @@ public class Equipo implements Comparable<Equipo> {
 
 	public Equipo() {
 		super();
+	}
+
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
 	}
 
 
