@@ -17,11 +17,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import modelo.Equipo;
 import modelo.Estudiante;
@@ -29,22 +33,77 @@ import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
+
+	// 19 febrero 2019
+
+	public void muestraClasificacion() {
+		JFrame ventana;
+		ventana = new JFrame("Clasificacion");
+
+		JPanel panel = new JPanel();
+		ventana.add(panel);
+
+		ArrayList<Equipo> equipos = this.generaClasificacion("ficheros/partidos.txt", "ficheros/equipos.txt");
+		
+		String[] columnas= {"EQUIPO","PUNTOS","PJ","PG","PE","PP","GF","GC"};
+		DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+
+		modelo.addRow(columnas);
+		for (Equipo equipo : equipos) {
+			Object[] vector = { equipo.getNombre(), 
+					equipo.getPuntos(),
+					equipo.getPj(), equipo.getPg(), equipo.getPe(),
+					equipo.getPp(), equipo.getGf(), equipo.getGc() };
+			modelo.addRow(vector);
+		}
+		JTable tabla = new JTable(modelo);
+		panel.add(tabla);
+		ventana.pack();
+		ventana.setVisible(true);
+	}
+
+	// 14 febrero 19
+
+	public Equipo buscarEquipoEnLista(String nombreCorto, ArrayList<Equipo> equipos) {
+		Equipo resultado;
+		for (Equipo equipo : equipos) {
+			if (equipo.getNombreCorto().equals(nombreCorto))
+				return equipo;
+		}
+		System.out.println("Ooops.. algo falla");
+		return null;
+	}
+
 	// 13 febrero
 	public void actualizaEquipos(Partido partido, ArrayList<Equipo> equipos) {
-		//
-		
-		/*
-		 * if (gL.compareTo(gV) > 0) {// gana Local equipos.get(eL).set(0,
-		 * equipos.get(eL).get(0) + 1); equipos.get(eV).set(2, equipos.get(eV).get(2) +
-		 * 1);
-		 * 
-		 * } else if (gL.compareTo(gV) < 0) // gana Visitante {// gana Local
-		 * equipos.get(eL).set(2, equipos.get(eL).get(2) + 1); equipos.get(eV).set(0,
-		 * equipos.get(eV).get(0) + 1); } else { // empate
-		 * 
-		 * equipos.get(eL).set(1, equipos.get(eL).get(1) + 1); equipos.get(eV).set(1,
-		 * equipos.get(eV).get(1) + 1); }
-		 */
+		String nCortoL = partido.geteL();
+		String nCortoV = partido.geteV();
+		Equipo eL = buscarEquipoEnLista(nCortoL, equipos);
+		Equipo eV = buscarEquipoEnLista(nCortoV, equipos);
+
+		// logica del resultado del partido
+		if (partido.getgL() > partido.getgV()) {
+			eL.setPuntos(eL.getPuntos() + 3);
+			eL.setPg(eL.getPg() + 1);
+			eV.setPp(eV.getPp() + 1);
+		} else if (partido.getgL() < partido.getgV()) {
+			eV.setPuntos(eV.getPuntos() + 3);
+			eV.setPg(eV.getPg() + 1);
+			eL.setPp(eL.getPp() + 1);
+		} else {
+			eL.setPuntos(eL.getPuntos() + 1);
+			eV.setPuntos(eV.getPuntos() + 1);
+			eV.setPe(eV.getPe() + 1);
+			eL.setPe(eL.getPe() + 1);
+		}
+		eL.setGf(eL.getGf() + partido.getgL());
+		eL.setGc(eL.getGc() + partido.getgV());
+
+		eV.setGf(eV.getGf() + partido.getgV());
+		eV.setGc(eV.getGc() + partido.getgL());
+
+		eL.setPj(eL.getPj() + 1);
+		eV.setPj(eV.getPj() + 1);
 	}
 
 	public Partido creaPartido(String linea) {
@@ -52,7 +111,7 @@ public class Ejercicios {
 		String[] campos = linea.split("#");
 		partido.setId(Integer.parseInt(campos[0]));
 		partido.setJornada(Integer.parseInt(campos[1]));
-		partido.seteL(campos[2]);		
+		partido.seteL(campos[2]);
 		partido.seteV(campos[4]);
 
 		try {
@@ -70,7 +129,7 @@ public class Ejercicios {
 		ArrayList<Equipo> resultado;
 		try {
 			// crear lista equipos desde fichero equipos.txt
-			 resultado = crearListaEquipos(rutaEquipos);
+			resultado = crearListaEquipos(rutaEquipos);
 			//
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaPartidos));
@@ -83,6 +142,7 @@ public class Ejercicios {
 				// actualiza lista Equipos
 				actualizaEquipos(partido, resultado);
 			}
+			Collections.sort(resultado, null);
 			fichero.close();
 			return resultado;
 		} catch (FileNotFoundException excepcion) {
@@ -1059,8 +1119,9 @@ public class Ejercicios {
 		// ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		// HashMap<String, Integer> puntosEquipos =
 		// ejercicios.generaPuntosEquipos(resultados);
+		ejercicios.muestraClasificacion();
 
-		ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
+//ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
 		// ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
 
 		// ejercicios.pruebaSWING();
