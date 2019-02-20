@@ -3,10 +3,13 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
 
@@ -33,6 +37,63 @@ import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
+	public void creaFicheroObjetoEquipos (String rutaEquipos)
+	{
+		try {
+			FileOutputStream salida = new FileOutputStream("ficheros/equipos.obj");
+			ObjectOutputStream objetos = new ObjectOutputStream(salida);
+			// recorre equipos.txt, creando objetos equipo
+			// y grabandolos en objetos
+			
+		} catch (FileNotFoundException e) {
+		
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void grabarTiradasDado(int cuantas) {
+		try {
+			// "tiradasDado.txt"
+			// abrir fichero de salida
+			BufferedWriter fichero;
+			fichero = new BufferedWriter(new FileWriter("ficheros/tiradasDado.txt"));
+			Random rnd = new Random();
+			int acum=0;
+			for (int i = 0; i < cuantas; i++) {
+				int numero = 1 + rnd.nextInt(6);
+				acum+= numero;
+                fichero.write (numero+"\n");
+			}
+			System.out.printf("media = %.2f \n" , (float)acum/cuantas);
+			System.out.println("Proceso terminado...");
+			fichero.close();
+		} catch (IOException ex) {
+			System.out.println("Error I/O " + ex.getMessage());
+
+		}
+
+	}
+
+	public void entradaTecladoAFichero(String rutaFichero) {
+		try {
+			BufferedWriter fichero;
+			fichero = new BufferedWriter(new FileWriter(rutaFichero));
+			Scanner teclado = new Scanner(System.in);
+			String tecleado;
+			while ((tecleado = teclado.nextLine()).compareToIgnoreCase("x") != 0) {
+				System.out.println("Teclee sus datos..(x|X) para terminar");
+				fichero.write(tecleado + "\n");
+			}
+			fichero.close();
+		} catch (IOException ex) {
+			System.out.println("Error I/O " + ex.getMessage());
+		}
+		System.out.println("fin entrada de datos..");
+	}
 
 	// 19 febrero 2019
 
@@ -44,15 +105,13 @@ public class Ejercicios {
 		ventana.add(panel);
 
 		ArrayList<Equipo> equipos = this.generaClasificacion("ficheros/partidos.txt", "ficheros/equipos.txt");
-		
-		String[] columnas= {"EQUIPO","PUNTOS","PJ","PG","PE","PP","GF","GC"};
+
+		String[] columnas = { "EQUIPO", "PUNTOS", "PJ", "PG", "PE", "PP", "GF", "GC" };
 		DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
 		modelo.addRow(columnas);
 		for (Equipo equipo : equipos) {
-			Object[] vector = { equipo.getNombre(), 
-					equipo.getPuntos(),
-					equipo.getPj(), equipo.getPg(), equipo.getPe(),
+			Object[] vector = { equipo.getNombre(), equipo.getPuntos(), equipo.getPj(), equipo.getPg(), equipo.getPe(),
 					equipo.getPp(), equipo.getGf(), equipo.getGc() };
 			modelo.addRow(vector);
 		}
@@ -1115,12 +1174,16 @@ public class Ejercicios {
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
 
+		
+		
+		ejercicios.grabarTiradasDado(10);
 		// HashMap<String, ArrayList<Integer>> resultados =
 		// ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		// HashMap<String, Integer> puntosEquipos =
 		// ejercicios.generaPuntosEquipos(resultados);
-		ejercicios.muestraClasificacion();
-
+		// ejercicios.muestraClasificacion();
+		//ejercicios.entradaTecladoAFichero("ficheros/teclado.txt");
+		
 //ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
 		// ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
 
