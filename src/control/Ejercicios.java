@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,22 +39,64 @@ import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
-	public void creaFicheroObjetoEquipos (String rutaEquipos)
-	{
+
+	public void leerObjetosEquipos() {
+		ObjectInputStream objetos = null;
 		try {
+			objetos = new ObjectInputStream(new FileInputStream("ficheros/equipos.obj"));
+
+			while (true) {
+				 Equipo equipo = (Equipo) objetos.readObject();		
+				 System.out.println(equipo.getNombre());
+			}
+
+		} catch (FileNotFoundException e) {
+			System.out.println("error1");
+		} catch (IOException e) {
+			System.out.println("Fin de la lectura");
+			try {
+				objetos.close();
+			} catch (IOException e1) {
+
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("clase no encontrada");
+		} catch (java.lang.ClassCastException e) {
+			System.out.println("Casting imposible");
+		}
+
+	}
+
+	public void creaFicheroObjetoEquipos() {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader("ficheros/equipos.txt"));
 			FileOutputStream salida = new FileOutputStream("ficheros/equipos.obj");
 			ObjectOutputStream objetos = new ObjectOutputStream(salida);
-			// recorre equipos.txt, creando objetos equipo
-			// y grabandolos en objetos
-			
-		} catch (FileNotFoundException e) {
-		
-			e.printStackTrace();
+
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				Equipo equipo = new Equipo(Integer.parseInt(campos[0]), campos[1], campos[2]);
+				equipo.setGc(0);
+				equipo.setGf(0);
+				equipo.setPe(0);
+				equipo.setPg(0);
+				equipo.setPp(0);
+				equipo.setPuntos(0);
+				objetos.writeObject(equipo);
+
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
 		} catch (IOException e) {
-			
-			e.printStackTrace();
+			System.out.println("IO Excepcion");
 		}
-		
+
 	}
 
 	public void grabarTiradasDado(int cuantas) {
@@ -62,13 +106,13 @@ public class Ejercicios {
 			BufferedWriter fichero;
 			fichero = new BufferedWriter(new FileWriter("ficheros/tiradasDado.txt"));
 			Random rnd = new Random();
-			int acum=0;
+			int acum = 0;
 			for (int i = 0; i < cuantas; i++) {
 				int numero = 1 + rnd.nextInt(6);
-				acum+= numero;
-                fichero.write (numero+"\n");
+				acum += numero;
+				fichero.write(numero + "\n");
 			}
-			System.out.printf("media = %.2f \n" , (float)acum/cuantas);
+			System.out.printf("media = %.2f \n", (float) acum / cuantas);
 			System.out.println("Proceso terminado...");
 			fichero.close();
 		} catch (IOException ex) {
@@ -1174,16 +1218,16 @@ public class Ejercicios {
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
 
-		
-		
-		ejercicios.grabarTiradasDado(10);
+		// ejercicios.creaFicheroObjetoEquipos();
+		//ejercicios.leerObjetosEquipos();
+		// ejercicios.grabarTiradasDado(10);
 		// HashMap<String, ArrayList<Integer>> resultados =
 		// ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		// HashMap<String, Integer> puntosEquipos =
 		// ejercicios.generaPuntosEquipos(resultados);
-		// ejercicios.muestraClasificacion();
-		//ejercicios.entradaTecladoAFichero("ficheros/teclado.txt");
-		
+		 ejercicios.muestraClasificacion();
+		// ejercicios.entradaTecladoAFichero("ficheros/teclado.txt");
+
 //ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
 		// ejercicios.ordenarMapaPuntosEquipos(puntosEquipos);
 
