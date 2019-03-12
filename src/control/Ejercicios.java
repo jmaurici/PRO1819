@@ -40,14 +40,74 @@ import modelo.Persona;
 
 public class Ejercicios {
 
+	// 12 marzo 2019
+
+	// modificar crearListaEquipos para que devuelva una lista
+
+	// ArrayList<Equipo>
+
+	// El fichero a leer se llama equipos.txt
+
+	public ArrayList<Equipo> crearListaEquipos2(String rutaEquipos) {
+		ArrayList<Equipo> equipos = new ArrayList<Equipo>();
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaEquipos));
+			String registro;
+
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				Equipo e = new Equipo();
+				e.setId(Integer.parseInt(campos[0]));
+				e.setNombreCorto(campos[1]);
+				e.setNombre(campos[2]);
+				e.setGc(0);
+				e.setGf(0);
+				e.setPe(0);
+				e.setPg(0);
+				e.setPp(0);
+				equipos.add(e);
+			}
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+
+		return equipos;
+
+	}
+
+	public int busquedaBinaria(int aguja, int[] pajar) {
+		int izq = 0;
+		int der = pajar.length - 1;
+		while (izq <= der) {
+			int med = (der - izq) / 2 + izq;
+			if (pajar[med] == aguja) // encontrado
+			{
+				System.out.println(" ENCONTRADO " + aguja + " en POSICION " + med);
+				return med;
+			} else if (pajar[med] < aguja)
+				izq = med + 1;
+			else
+				der = med - 1;
+		}
+		System.out.println("NO ENCONTRADO " + aguja);
+		return -1;
+	}
+
 	public void leerObjetosEquipos() {
 		ObjectInputStream objetos = null;
 		try {
 			objetos = new ObjectInputStream(new FileInputStream("ficheros/equipos.obj"));
 
 			while (true) {
-				 Equipo equipo = (Equipo) objetos.readObject();		
-				 System.out.println(equipo.getNombre());
+				Equipo equipo = (Equipo) objetos.readObject();
+				System.out.println(equipo.getNombre());
 			}
 
 		} catch (FileNotFoundException e) {
@@ -526,6 +586,18 @@ public class Ejercicios {
 		}
 		return null;
 	}
+	
+	
+	public Equipo buscarEquipo (String equipo, ArrayList<Equipo> equipos)
+	{
+		// equipo es el nombre corto
+		//????
+		
+		
+		
+		return null;
+	}
+	
 
 	// 22 enero 2019
 
@@ -1218,14 +1290,18 @@ public class Ejercicios {
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
 
+		int[] pajar = { 12, 45, 46, 57, 78, 90, 99 };
+		int aguja = 12;
+		ejercicios.busquedaBinaria(90, pajar);
+
 		// ejercicios.creaFicheroObjetoEquipos();
-		//ejercicios.leerObjetosEquipos();
+		// ejercicios.leerObjetosEquipos();
 		// ejercicios.grabarTiradasDado(10);
 		// HashMap<String, ArrayList<Integer>> resultados =
 		// ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		// HashMap<String, Integer> puntosEquipos =
 		// ejercicios.generaPuntosEquipos(resultados);
-		 ejercicios.muestraClasificacion();
+		// ejercicios.muestraClasificacion();
 		// ejercicios.entradaTecladoAFichero("ficheros/teclado.txt");
 
 //ArrayList<Equipo> eqOrdenados = ejercicios.equiposListaOrdenadaNombre("ficheros/equipos.txt");
