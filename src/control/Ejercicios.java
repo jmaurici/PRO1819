@@ -100,6 +100,20 @@ public class Ejercicios {
 		return -1;
 	}
 
+	
+	public Equipo buscarEquipo (String equipo, ArrayList<Equipo> equipos)
+	{
+		// equipo es el nombre corto XYZ, RMA
+		//Recorrer la LISTA de equipos, preguntando si el nombre corto coincide con alguno..
+		// si no encontramos ninguno, devuelve null.
+		
+		 
+		return null;
+	}
+	
+	
+	
+	
 	public void leerObjetosEquipos() {
 		ObjectInputStream objetos = null;
 		try {
@@ -588,15 +602,7 @@ public class Ejercicios {
 	}
 	
 	
-	public Equipo buscarEquipo (String equipo, ArrayList<Equipo> equipos)
-	{
-		// equipo es el nombre corto
-		//????
-		
-		
-		
-		return null;
-	}
+	
 	
 
 	// 22 enero 2019

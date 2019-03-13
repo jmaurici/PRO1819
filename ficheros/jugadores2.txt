@@ -1,0 +1,553 @@
+1#Fernando Pacheco#1#1
+2#Antonio Sivera#13#1
+3#Álex Domínguez#31#1
+4#Carlos Vigaray#2#1
+5#Rubén Duarte#3#1
+6#Rodrigo Ely#4#1
+7#Víctor Laguardia#5#1
+8#Guillermo Maripán#6#1
+9#Ximo Navarro#29#1
+10#Adrián Marín#7#1
+11#Martín Aguirregabiria#21#1
+12#Adrián Diéguez#26#1
+13#Tomás Pina#8#1
+14#Ibai Gómez#11#1
+15#Burgui#14#1
+16#Daniel Torres#16#1
+17#Manu García#19#1
+18#Darko Brasanac#20#1
+19#Mubarak Wakaso#22#1
+20#Jony#23#1
+21#Antonio Perera#27#1
+22#Rubén Sobrino#7#1
+23#John Guidetti#10#1
+24#Jonathan Calleri#12#1
+25#Borja Bastón#18#1
+26#Patrick Twumasi#24#1
+27#Andrei Lupu#34#1
+28#Álex Remiro#1#2
+29#Iago Herrerín#13#2
+30#Unai Simón#25#2
+31#Hodei Oleaga#26#2
+32#Cristian Ganea#2#2
+33#Unai Núńez#3#2
+34#Íńigo Martínez#4#2
+35#Yeray Álvarez#5#2
+36#Yuri#12#2
+37#Íńigo Lekue#15#2
+38#Óscar De Marcos#18#2
+39#Ander Cap#21#2
+40#Mikel Balenziaga#24#2
+41#Mikel San José#6#2
+42#Beńat Etxebarria#7#2
+43#Ander Iturraspe#8#2
+44#Ińigo Córdoba#11#2
+45#Markel Susaeta#14#2
+46#Dani García#16#2
+47#Mikel Rico#17#2
+48#Raúl García#22#2
+49#Unai López#23#2
+50#Peru Nolaskoain#31#2
+51#Ińaki Williams#9#2
+52#Iker Muniain#10#2
+53#Aritz Aduriz#20#2
+54#Gorka Guruzeta#30#2
+55#Antonio Adán#1#3
+56#1Jan Oblak#13#3
+57#Alex Dos Santos#25#3
+58#Diego Godín#2#3
+59#Filipe Luís#3#3
+60#Santiago Arias#4#3
+61#Stefan Savic#15#3
+62#Juanfran#20#3
+63#Lucas Hernández#21#3
+64#José Giménez#24#3
+65#Andrés Solano#33#3
+66#Francisco Montero#35#3
+67#Tachi#36#3
+68#Carlos Isaac Muńoz#38#3
+69#Thomas Partey#5#3
+70#Koke#6#3
+71#Saúl Ńíguez#8#3
+72#Thomas Lemar#11#3
+73#Rodrigo#14#3
+74#Vitolo#23#3
+75#Toni Moya#43#3
+76#Antoine Griezmann#7#3
+77#Nikola Kalinic#9#3
+78#Ángel Correa#10#3
+79#Gelson Martins#18#3
+80#Diego Costa#19#3
+81#Borja Garcés#32#3
+82#Joaquín Muńoz#47#3
+83#Marc-André ter Stegen#1#4
+84#Jasper Cillessen#13#4
+85#Ińaki Peńa#30#4
+86#Jokin Ezkieta#31#4
+87#Nélson Semedo#2#4
+88#Gerard Piqué#3#4
+89#Clément Lenglet#15#4
+90#Jordi Alba#18#4
+91#Sergi Roberto#20#4
+92#Samuel Umtiti#23#4
+93#Thomas Vermaelen#24#4
+94#Juan Miranda#27#4
+95#Jorge Cuenca#33#4
+96#Chumi#36#4
+97#Guillem Jaime#38#4
+98#Ivan Rakiticx#4#4
+99#Sergio Busquets#5#4
+100#Denis Suárez#6#4
+101#Coutinho#7#4
+102#Arthur#8#4
+103#Rafinha#12#4
+104#Sergi Samper#16#4
+105#Carles Aleńá#21#4
+106#Arturo Vidal#22#4
+107#Riqui Puig#28#4
+108#Álex Collado#34#4
+109#Oriol Busquets#35#4
+110#Luis Suárez#9#4
+111#Lionel Messi#10#4
+112#Ousmane Dembélé#11#4
+113#Malcom#14#4
+114#Munir El Haddadi#19#4
+115#Sergio Álvarez#1#5
+116#Rubén Blanco#13#5
+117#Iván Villar#26#5
+118#Hugo Mallo#2#5
+119#David Costas#3#5
+120#Néstor Araújo#4#5
+121#Robert Mazán#15#5
+122#David Juncŕ#17#5
+123#Kevin Vázquez#20#5
+124#Gustavo Cabral#22#5
+125#Facundo Roncaglia#24#5
+126#Júnior Alonso#25#5
+127#Okay Yokuslu#5#5
+128#Nemanja Radoja#6#5
+129#Fran Beltrán#8#5
+130#Stanislav Lobotka#14#5
+131#Andrew Hjulsager#16#5
+132#Mathias Jensen#18#5
+133#Sofiane Boufal#19#5
+134#Jozabed Sánchez#21#5
+135#Brais Méndez#23#5
+136#Emre Mor#7#5
+137#Maxi Gómez#9#5
+138#Iago Aspas#10#5
+139#Pione Sisto#11#5
+140#Dennis Eckert#32#5
+141#Marko Dmitrovic#1#6
+142#Asier Riesgo#13#6
+143#Markel Areitio#35#6
+144#Jordi Calavera#2#6
+145#Pedro Bigas#3#6
+146#Iván Ramis#4#6
+147#Paulo Oliveira#12#6
+148#Cote#15#6
+149#Marc Cucurella#20#6
+150#Anaitz Arbilla#23#6
+151#Gonzalo Escalante#5#6
+152#Sergio Álvarez#6#6
+153#Pape Diop#8#6
+154#Rubén Peńa#11#6
+155#Fabián Orellana#14#6
+156#Pablo De Blasis#16#6
+157#Pablo Hervías#18#6
+158#Pedro León#21#6
+159#Joan Jordán#24#6
+160#Marc Cardona#7#6
+161#Sergi Enrich#9#6
+162#Kike García#17#6
+163#Charles#19#6
+164#Pere Milla#22#6
+165#Roberto Jiménez#1#7
+166#Diego López#13#7
+167#Pipa#2#7
+168#Naldo#5#7
+169#Óscar Duarte#6#7
+170#Roberto Rosales#8#7
+171#Dídac Vilá#12#7
+172#David López#15#7
+173#Javi López#16#7
+174#Mario Hermoso#22#7
+175#Lluís López#27#7
+176#Adriŕ Pedrosa#28#7
+177#Víctor Sánchez#4#7
+178#Sergi Darder#10#7
+179#Óscar Melendo#14#7
+180#Álex López#18#7
+181#Pablo Piatti#19#7
+182#Marc Roca#21#7
+183#Esteban Granero#23#7
+184#Borja Iglesias#7#7
+185#Sergio García#9#7
+186#Leo Baptistao#11#7
+187#Hernán Pérez#17#7
+188#Javi Puado#20#7
+189#Carlos Doncel#29#7
+190#Leandro Chichizola#1#8
+191#David Soria#13#8
+192#Rubén Yáńez#25#8
+193#Djené Dakonam#2#8
+194#Vitorino Antunes#3#8
+195#Bruno González#4#8
+196#Leandro Cabrera#6#8
+197#Ignasi Miquel#21#8
+198#Damián Suárez#22#8
+199#Dimitri Foulquier#24#8
+200#Markel Bergara#5#8
+201#Francisco Portillo#8#8
+202#Gaku Shibasaki#10#8
+203#Sebastián Cristóforo#15#8
+204#Robert Ibáńez#17#8
+205#Mauro Arambarri#18#8
+206#Nemanja Maksimovic#20#8
+207#Iván Alejo#23#8
+208#Jaime Mata#7#8
+209#Ángel Rodríguez#9#8
+210#Amath Ndiaye#11#8
+211#Sergi Guardiola#14#8
+212#Jorge Molina#19#8
+213#Hugo Duro#27#8
+214#Gorka Iraizoz#1#9
+215#Yassine Bounou#13#9
+216#José Aurelio Suárez#30#9
+217#Marc Vito#36#9
+218#Bernardo Espinosa#2#9
+219#Johan Mojica#3#9
+220#Jonás Ramalho#4#9
+221#Pedro Alcalá#5#9
+222#Juanpe#15#9
+223#Marc Muniesa#20#9
+224#Carles Planas#21#9
+225#Čric Montes#28#9
+226#Álex Granell#6#9
+227#Pere Pons#8#9
+228#Portu#9#9
+229#Borja García#10#9
+230#Aday Benítez#11#9
+231#Douglas Luiz#12#9
+232#Patrick Roberts#17#9
+233#Aleix García#23#9
+234#Yhoan Andzouana#26#9
+235#Kevin Soni#27#9
+236#Pedro Porro#29#9
+237#Paik Seung-Ho#32#9
+238#Valery Fernández#34#9
+239#Cristhian Stuani#7#9
+240#Anthony Lozano#19#9
+241#Seydou Doumbia#22#9
+242#Axel Werner#1#10
+243#Roberto Santamaría#13#10
+244#Aleksandar Jovanovic#25#10
+245#Xabier Etxeita#3#10
+246#Rúben Semedo#4#10
+247#Jorge Pulido#14#10
+248#Carlos Akapo#15#10
+249#Luisinho#16#10
+250#Pablo Ínsua#18#10
+251#Rajko Brezancic#20#10
+252#Jorge Miramón#24#10
+253#Javier Almerge#27#10
+254#Juan Aguilera#5#10
+255#Moi Gómez#6#10
+256#David Ferreiro#7#10
+257#Gonzalo Melero#8#10
+258#Camacho#10#10
+259#Christian Rivera#17#10
+260#Serdar Gurler#21#10
+261#Lluis Sastre#22#10
+262#Damián Musto#23#10
+263#José Ignacio Uche#26#10
+264#Juan Camilo Hernández#9#10
+265#Álex Gallar#11#10
+266#Samuele Longo#12#10
+267#Ezequiel Ávila#19#10
+268#Iván Cuéllar#1#11
+269#Jon Serantes#13#11
+270#Andriy Lunin#29#11
+271#Juanfran#2#11
+272#Unai Bustinza#3#11
+273#Jonathan Silva#5#11
+274#Allan Nyom#12#11
+275#Raúl García#14#11
+276#Mauro Dos Santos#15#11
+277#Ezequiel Muńoz#19#11
+278#Dimitrios Siovas#22#11
+279#Kenneth Omeruo#24#11
+280#Rodrigo Tarín#28#11
+281#Gerard Gumbau#6#11
+282#Recio#8#11
+283#Nabil El Zhar#10#11
+284#Alexander Szymanowski#11#11
+285#Javier Eraso#17#11
+286#Rubén Pérez#21#11
+287#Mikel Vesga#23#11
+288#Óscar Rodríguez#27#11
+289#Diego Rolan#4#11
+290#Daniel Ojeda#7#11
+291#Guido Carrillo#9#11
+292#José Arnáiz#16#11
+293#Sabin Merino#18#11
+294#Michael Santos#20#11
+295#Youssef En-Nesyrix#20#11
+296#Javier Avilés#33#11
+297#Koke#1#12
+298#Oier Olazábal#13#12
+299#Aitor Fernández#25#12
+300#Tońo#3#12
+301#Rober Pier#4#12
+302#Chema Rodríguez#6#12
+303#Coke#12#12
+304#Sergio Postigo#15#12
+305#Erick Cabaco#18#12
+306#Pedro López#19#12
+307#Antonio Luna#22#12
+308#Genís Montolio#26#12
+309#Cheick Doukouré#5#12
+310#Sanjin Prcic#8#12
+311#Enis Bardhi#10#12
+312#José Luis Morales#11#12
+313#Samu García#14#12
+314#Rubén Rochina#16#12
+315#Nikola Vukcevic#17#12
+316#José Campańa#4#12
+317#Fran Manzanara#27#12
+318#Armando Sadiku#0#12
+319#Borja Mayoral#2#12
+320#Moses Simon#7#12
+321#Roger Martí#9#12
+322#Raphael Dwamena#20#12
+323#Emmanuel Boateng#21#12
+324#Jason#23#12
+325#Alberto García#1#13
+326#Stole Dimitrievski#13#13
+327#Miguel Ángel Morro#30#13
+328#José León#0#13
+329#Tito#2#13
+330#Chechu Dorado#5#13
+331#Jordi Amat#16#13
+332#Luis Advíncula#17#13
+333#Emiliano Velázquez#20#13
+334#Abdoulaye Ba#21#13
+335#Alejandro Gálvez#23#13
+336#Sergio Akieme#28#13
+337#Martín Pascual#31#13
+338#Luis Meseguer#33#13
+339#Álvaro Medrán#4#13
+340#Gorka Elustondo#6#13
+341#Álex Moreno#7#13
+342#Gaël Kakuta#10#13
+343#Giannelli Imbula#12#13
+344#Álvaro García#18#13
+345#José Pozo#22#13
+346#Santiago Comesańa#27#13
+347#Manuel Navarro#34#13
+348#Ángel Algobia#35#13
+349#Óscar Trejo#8#13
+350#Raúl de Tomás#9#13
+351#Adrián Embarba#11#13
+352#Bebé#14#13
+353#Álex Alegría#15#13
+354#Lass#19#13
+355#Javi Guerra#24#13
+356#Sergio Moreno#29#13
+357#Joel Robles#1#14
+358#Pau López#13#14
+359#Zouhair Feddal#4#14
+360#Marc Bartra#5#14
+361#Sidnei#12#14
+362#Antonio Barragán#19#14
+363#Júnior Firpo#20#14
+364#Aissa Mandi#23#14
+365#Edgar González#32#14
+366#Francis#2#14
+367#Javi García#3#14
+368#Sergio Canales#6#14
+369#Takashi Inui#8#14
+370#Ryad Boudebouz#10#14
+371#William Carvalho#14#14
+372#Joaquín#17#14
+373#Andrés Guardado#18#14
+374#Giovani Lo Celso#21#14
+375#Wilfrid Kaptoum#34#14
+376#Diego Altamirano#37#14
+377#Sergio León#7#14
+378#Antonio Sanabria#9#14
+379#Cristian Tello#11#14
+380#Loren Morón#16#14
+381#Robert#33#14
+382#Keylor Navas#1#15
+383#Kiko Casilla#13#15
+384#Thibaut Courtois#25#15
+385#Daniel Carvajal#2#15
+386#Jesús Vallejo#3#15
+387#Sergio Ramos#4#15
+388#Raphael Varane#5#15
+389#Nacho#6#15
+390#Marcelo#12#15
+391#Álvaro Odriozola#19#15
+392#Sergio Reguilón#23#15
+393#Adrian De la Fuente#26#15
+394#Javi Sánchez#31#15
+395#Francisco Garcia#37#15
+396#Toni Kroos#8#15
+397#Luka Modric#10#15
+398#Casemiro#14#15
+399#Federico Valverde#15#15
+400#Lucas Vázquez#17#15
+401#Marcos Llorente#18#15
+402#Marco Asensio#20#15
+403#Isco#22#15
+404#Dani Ceballos#24#15
+405#Franchu#34#15
+406#Álvaro Fidalgo#36#15
+407#Mariano#7#15
+408#Karim Benzema#9#15
+409#Gareth Bale#11#15
+410#Cristo González#27#15
+411#Vinícius Júnior#28#15
+412#Gerónimo Rulli#1#16
+413#Miguel Ángel Moyá#13#16
+414#Andoni Zubiaurre#30#16
+415#Joseba Zaldua#2#16
+416#Diego Llorente#3#16
+417#Héctor Moreno#6#16
+418#Aritz Elustondo#15#16
+419#Andoni Gorosabel#18#16
+420#Theo Hernández#19#16
+421#Kévin Rodrigues#20#16
+422#Raúl Navas#22#16
+423#Robin Le Normand#27#16
+424#Aihen Muńoz#29#16
+425#Jon Guridi#0#16
+426#David Concha#0#16
+427#Asier Illarramendi#4#16
+428#Igor Zubeldia#5#16
+429#Mikel Merino#8#16
+430#Adnan Januzaj#11#16
+431#Rubén Pardo#14#16
+432#David Zurutuza#17#16
+433#Luca Sangalli#23#16
+434#Ander Guevara#26#16
+435#Näis Djouahra#31#16
+436#Juanmi#7#16
+437#Mikel Oyarzabal#10#16
+438#Willian José#12#16
+439#Martín Merquelanz#16#16
+440#Jon Bautista#21#16
+441#Sandro Ramírez#24#16
+442#Roberto López#28#16
+443#Jordi Masip#1#17
+444#Yoel Rodríguez#13#17
+445#Samuel Pérez#26#17
+446#Moisés Delgado#3#17
+447#Kiko Olivas#4#17
+448#Fernando Calero#5#17
+449#Alberto Guitián#15#17
+450#Javi Moyano#17#17
+451#Antońito#18#17
+452#Nacho#22#17
+453#Mohammed Salisu#18#17
+454#Roberto Corral#34#17
+455#Javier Aparicio#38#17
+456#Joaquín Fernández#2#17
+457#Luismi#6#17
+458#Borja Fernández#8#17
+459#Rubén Alcaraz#14#17
+460#Antonio Cotán#16#17
+461#Toni Villa#19#17
+462#Míchel#21#17
+463#Anuar Mohamed#23#17
+464#Keko#24#17
+465#Pablo Muńoz#31#17
+466#Leo Suárez#32#17
+467#Ivi#7#17
+468#Enes Ünal#9#17
+469#Óscar Plano#10#17
+470#Daniele Verde#11#17
+471#Duje Cop#20#17
+472#Miguel De la Fuente#27#17
+473#Kuki Zalazar#39#17
+474#Tomás Vaclik#1#18
+475#Juan Soriano#13#18
+476#Lucho#38#18
+477#Sergi Gómez#3#18
+478#Simon Kjaer#4#18
+479#Daniel Carriço#6#18
+480#Aleix Vidal#11#18
+481#Sergio Escudero#18#18
+482#Guilherme Arana#23#18
+483#Joris Gnagnon#24#18
+484#Gabriel Mercado#25#18
+485#Juan Berrocal#37#18
+486#Javier Vázquez#40#18
+487#Ibrahim Amadou#5#18
+488#Roque Mesa#7#18
+489#Éver Banega#10#18
+490#Maxime Gonalons#15#18
+491#Jesús Navas#16#18
+492#Pablo Sarabia#17#18
+493#Borja Lasso#20#18
+494#Franco Vázquez#22#18
+495#José Mena#29#18
+496#Nolito#8#18
+497#Wissam Ben Yedder#9#18
+498#André Silva#12#18
+499#Luis Muriel#14#18
+500#Quincy Promes#21#18
+501#Jaume Doménech#1#19
+502#Neto#13#19
+503#Rúben Vezo#3#19
+504#Jeison Murillo#4#19
+505#Gabriel#5#19
+506#Mouctar Diakhaby#12#19
+507#José Gayá#14#19
+508#Toni Lato#15#19
+509#Cristiano Piccini#21#19
+510#Ezequiel Garay#24#19
+511#Hugo Guillamón#36#19
+512#Geoffrey Kondogbia#6#19
+513#Gonçalo Guedes#7#19
+514#Carlos Soler#8#19
+515#Daniel Parejo#10#19
+516#Denis Cheryshev#11#19
+517#Francis Coquelin#17#19
+518#Daniel Wass#18#19
+519#Ferrán Torres#20#19
+520#Uros Racic#26#19
+521#Lee Kang-In#34#19
+522#Kevin Gameiro#9#19
+523#Rodrigo Moreno#19#19
+524#Santi Mina#22#19
+525#Michy Batshuayi#23#19
+526#Álex Blanco#30#19
+527#Serio Asenjo#1#20
+528#Andrés Fernández#13#20
+529#Mariano Barbosa#25#20
+530#Mario Gaspar#2#20
+531#Álvaro González#3#20
+532#Ramiro Funes Mori#4#20
+533#Víctor Ruiz#6#20
+534#Jaume Costa#11#20
+535#Miguelón#15#20
+536#Daniele Bonera#23#20
+537#Miguel Layún#24#20
+538#Xavier Quintillá#39#20
+539#Santiago Cáseres#5#20
+540#Pablo Fornals#8#20
+541#Manu Trigueros#14#20
+542#Alfonso Pedraza#16#20
+543#Javi Fuego#1#20
+544#Santi Cazorla#19#20
+545#Manuel Iturra#20#20
+546#Bruno Soriano#21#20
+547#Manuel Morlanes#28#20
+548#Samuel Chukwueze#30#20
+549#Gerard Moreno#7#20
+550#Carlos Bacca#9#20
+551#Nicola Sansone#10#20
+552#Karl Toko Ekambi#17#20
+553#Raba#22#20
