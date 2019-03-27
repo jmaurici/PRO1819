@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -35,10 +36,102 @@ import javax.swing.table.TableModel;
 
 import modelo.Equipo;
 import modelo.Estudiante;
+import modelo.Jugador;
 import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
+
+	// 27 marzo 2019
+	// MEZCLA DE DOS FICHEROS DE TEXTO , ORDENADOS PREVIAMENTE POR UN CAMPO (CLAVE)
+
+	public String leeRegistro(BufferedReader fichero) throws IOException {
+		String registro = fichero.readLine();
+		if (registro == null) // se ha llegado al EOF fin del fichero
+			return "ZZZ";
+		return registro;
+	}
+
+	private void mezclaFicherosOrdenados(String rutaF1, String rutaF2, String rutaF3)
+			throws IOException, FileNotFoundException {
+		// abrir ficheros de entrada
+		BufferedReader f1 = new BufferedReader(new FileReader(rutaF1));
+		BufferedReader f2 = new BufferedReader(new FileReader(rutaF2));
+		// abrir fichero de salida (escritura)
+		BufferedWriter f3 = new BufferedWriter(new FileWriter(rutaF1));
+		// leer el primer registro de cada fichero
+		String registro1 = leeRegistro(f1);
+		String registro2 = leeRegistro(f2);
+
+		while (true) {
+			String k1 = registro1.split("#")[0];
+			String k2 = registro2.split("#")[0];
+
+			if ((k1.compareTo(k2)) < 0) {
+                f3.write(registro1);
+                registro1 = leeRegistro(f1);	
+			} else {
+				f3.write(registro2);
+                registro2 = leeRegistro(f2);
+			}
+
+		}
+
+	}
+
+	// 20 marzo 2019
+	// Ejemplo de recorrido recursivo de un árbol de directorios
+
+	public static void traverse(File parentNode, String leftIndent) {
+		if (parentNode.isDirectory()) {
+			System.out.println(leftIndent + parentNode.getName());
+
+			leftIndent += "     ";
+
+			File childNodes[] = parentNode.listFiles();
+			for (File childNode : childNodes) {
+				traverse(childNode, leftIndent);
+			}
+		} else {
+
+			System.out.println(leftIndent + "|   --> " + parentNode.getName());
+
+		}
+	}
+
+	public ArrayList<Jugador> creaListaJugadores(String rutaJugadores) {
+		ArrayList<Jugador> lista = new ArrayList<Jugador>();
+		// crear la lista, vacia
+		// recorrer secuencialmente el fichero
+		// crear el objeto Jugador por cada registro del fichero
+		// añadir jugador a la lista
+
+		// al terminar el fichero, devolver la lista
+		// si hay cualquier excepción , devolver null
+		return lista;
+	}
+
+	public HashMap<String, Jugador> creaMapaJugadores(String rutaJugadores) {
+		HashMap<String, Jugador> mapa = new HashMap<String, Jugador>();
+		// K -> V, K es el nif, id
+		// crear un hashmap, vacia
+		// recorrer secuencialmente el fichero
+		// crear el objeto Jugador por cada registro del fichero
+		// añadir jugador al mapa, usando el nif como clave
+
+		// al terminar el fichero, devolver el mapa
+		// si hay cualquier excepción , devolver null
+
+		return mapa;
+	}
+
+	public void ordenarListaJugadoresPorNombre(ArrayList<Jugador> listaJugadores) {
+
+	}
+
+	public void ordenarMapaJugadoresPorNombre(HashMap<String, Jugador> mapaJugadores) {
+
+	}
 
 	// 12 marzo 2019
 
@@ -100,20 +193,15 @@ public class Ejercicios {
 		return -1;
 	}
 
-	
-	public Equipo buscarEquipo (String equipo, ArrayList<Equipo> equipos)
-	{
+	public Equipo buscarEquipo(String equipo, ArrayList<Equipo> equipos) {
 		// equipo es el nombre corto XYZ, RMA
-		//Recorrer la LISTA de equipos, preguntando si el nombre corto coincide con alguno..
+		// Recorrer la LISTA de equipos, preguntando si el nombre corto coincide con
+		// alguno..
 		// si no encontramos ninguno, devuelve null.
-		
-		 
+
 		return null;
 	}
-	
-	
-	
-	
+
 	public void leerObjetosEquipos() {
 		ObjectInputStream objetos = null;
 		try {
@@ -600,10 +688,6 @@ public class Ejercicios {
 		}
 		return null;
 	}
-	
-	
-	
-	
 
 	// 22 enero 2019
 
@@ -686,14 +770,15 @@ public class Ejercicios {
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
 			String registro;
-			while ((registro = fichero.readLine()) != null) {
+			// while ((registro = fichero.readLine()) != null) {
+			while (true) {
+				registro = fichero.readLine();
 				System.out.println(registro);
 
 				// ................
-
+				fichero.close();
+				System.out.println("Fin de la lectura del fichero");
 			}
-			fichero.close();
-			System.out.println("Fin de la lectura del fichero");
 
 		} catch (FileNotFoundException excepcion) {
 			System.out.println("fichero no encontrado");
@@ -1296,9 +1381,12 @@ public class Ejercicios {
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
 
-		int[] pajar = { 12, 45, 46, 57, 78, 90, 99 };
-		int aguja = 12;
-		ejercicios.busquedaBinaria(90, pajar);
+		File inputFolder = new File("c:/ProgramData");
+		traverse(inputFolder, "");
+
+		// int[] pajar = { 12, 45, 46, 57, 78, 90, 99 };
+		// int aguja = 12;
+		// ejercicios.busquedaBinaria(90, pajar);
 
 		// ejercicios.creaFicheroObjetoEquipos();
 		// ejercicios.leerObjetosEquipos();
