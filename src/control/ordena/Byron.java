@@ -25,7 +25,7 @@ public class Byron {
 		lista.addAll(crearListaCampos(ruta2, "#"));
 
 		// Ordenamos la lista según el índice 2
-		ordenaArrayList(lista, 0);
+		ordenaArrayList(lista, 2);
 
 		// Escribimos la lista ordenada en la ruta especificada
 		escribirLista(lista, rutaDestino, "#");
