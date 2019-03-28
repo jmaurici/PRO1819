@@ -1,0 +1,20 @@
+80#nif80#Diego Costa#200#AAAAMMDD#M#19#3
+81#nif81#Borja Garcés#201#AAAAMMDD#M#32#3
+82#nif82#Joaquín Muñoz#202#AAAAMMDD#M#47#3
+83#nif83#Marc-André ter Stegen#203#AAAAMMDD#M#1#4
+84#nif84#Jasper Cillessen#204#AAAAMMDD#M#13#4
+85#nif85#Iñaki Peña#205#AAAAMMDD#M#30#4
+86#nif86#Jokin Ezkieta#206#AAAAMMDD#M#31#4
+87#nif87#Nélson Semedo#207#AAAAMMDD#M#2#4
+88#nif88#Gerard Piqué#208#AAAAMMDD#M#3#4
+89#nif89#Clément Lenglet#209#AAAAMMDD#M#15#4
+40#nif40#Mikel Balenziaga#160#AAAAMMDD#M#24#2
+41#nif41#Mikel San José#161#AAAAMMDD#M#6#2
+42#nif42#Beñat Etxebarria#162#AAAAMMDD#M#7#2
+43#nif43#Ander Iturraspe#163#AAAAMMDD#M#8#2
+44#nif44#Iñigo Córdoba#164#AAAAMMDD#M#11#2
+45#nif45#Markel Susaeta#165#AAAAMMDD#M#14#2
+46#nif46#Dani García#166#AAAAMMDD#M#16#2
+47#nif47#Mikel Rico#167#AAAAMMDD#M#17#2
+48#nif48#Raúl García#168#AAAAMMDD#M#22#2
+49#nif49#Unai López#169#AAAAMMDD#M#23#2

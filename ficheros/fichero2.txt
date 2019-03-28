@@ -1,0 +1,29 @@
+10#nif10#Adrián Marín#130#AAAAMMDD#M#17#1
+11#nif11#Martín Aguirregabiria#131#AAAAMMDD#M#21#1
+12#nif12#Adrián Diéguez#132#AAAAMMDD#M#26#1
+13#nif13#Tomás Pina#133#AAAAMMDD#M#8#1
+14#nif14#Ibai Gómez#134#AAAAMMDD#M#11#1
+15#nif15#Burgui#135#AAAAMMDD#M#14#1
+16#nif16#Daniel Torres#136#AAAAMMDD#M#16#1
+17#nif17#Manu García#137#AAAAMMDD#M#19#1
+18#nif18#Darko Brasanac#138#AAAAMMDD#M#20#1
+19#nif19#Mubarak Wakaso#139#AAAAMMDD#M#22#1
+81#nif81#Borja Garcés#201#AAAAMMDD#M#32#3
+82#nif82#Joaquín Muñoz#202#AAAAMMDD#M#47#3
+83#nif83#Marc-André ter Stegen#203#AAAAMMDD#M#1#4
+84#nif84#Jasper Cillessen#204#AAAAMMDD#M#13#4
+85#nif85#Iñaki Peña#205#AAAAMMDD#M#30#4
+86#nif86#Jokin Ezkieta#206#AAAAMMDD#M#31#4
+87#nif87#Nélson Semedo#207#AAAAMMDD#M#2#4
+88#nif88#Gerard Piqué#208#AAAAMMDD#M#3#4
+89#nif89#Clément Lenglet#209#AAAAMMDD#M#15#4
+90#nif90#Jordi Alba#210#AAAAMMDD#M#18#4
+91#nif91#Sergi Roberto#211#AAAAMMDD#M#20#4
+92#nif92#Samuel Umtiti#212#AAAAMMDD#M#23#4
+93#nif93#Thomas Vermaelen#213#AAAAMMDD#M#24#4
+94#nif94#Juan Miranda#214#AAAAMMDD#M#27#4
+95#nif95#Jorge Cuenca#215#AAAAMMDD#M#33#4
+96#nif96#Chumi#216#AAAAMMDD#M#36#4
+97#nif97#Guillem Jaime#217#AAAAMMDD#M#38#4
+98#nif98#Ivan Rakiticx#218#AAAAMMDD#M#4#4
+99#nif99#Sergio Busquets#219#AAAAMMDD#M#5#4

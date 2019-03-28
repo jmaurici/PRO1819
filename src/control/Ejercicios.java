@@ -41,42 +41,46 @@ import modelo.Partido;
 import modelo.Persona;
 
 public class Ejercicios {
+	
+	
+	
+	
 
 	// 27 marzo 2019
 	// MEZCLA DE DOS FICHEROS DE TEXTO , ORDENADOS PREVIAMENTE POR UN CAMPO (CLAVE)
 
-	public String leeRegistro(BufferedReader fichero) throws IOException {
+	public static String leeRegistro(BufferedReader fichero) throws IOException {
 		String registro = fichero.readLine();
 		if (registro == null) // se ha llegado al EOF fin del fichero
-			return "ZZZ";
+			return "z";
 		return registro;
 	}
 
-	private void mezclaFicherosOrdenados(String rutaF1, String rutaF2, String rutaF3)
+	private static void mezclaFicherosOrdenados(String rutaF1, String rutaF2, String rutaF3)
 			throws IOException, FileNotFoundException {
 		// abrir ficheros de entrada
 		BufferedReader f1 = new BufferedReader(new FileReader(rutaF1));
 		BufferedReader f2 = new BufferedReader(new FileReader(rutaF2));
 		// abrir fichero de salida (escritura)
-		BufferedWriter f3 = new BufferedWriter(new FileWriter(rutaF1));
+		BufferedWriter f3 = new BufferedWriter(new FileWriter(rutaF3));
 		// leer el primer registro de cada fichero
 		String registro1 = leeRegistro(f1);
 		String registro2 = leeRegistro(f2);
-
-		while (true) {
+		while (!registro1.contentEquals("z") || !registro2.contentEquals("z")) {
 			String k1 = registro1.split("#")[0];
 			String k2 = registro2.split("#")[0];
-
 			if ((k1.compareTo(k2)) < 0) {
-                f3.write(registro1);
-                registro1 = leeRegistro(f1);	
+				f3.write(registro1+"\n");
+				registro1 = leeRegistro(f1);
 			} else {
-				f3.write(registro2);
-                registro2 = leeRegistro(f2);
+				f3.write(registro2+ "\n");
+				registro2 = leeRegistro(f2);
 			}
-
 		}
-
+		// cierre de ficheros
+		f1.close();
+		f2.close();
+		f3.close();
 	}
 
 	// 20 marzo 2019
@@ -1380,9 +1384,18 @@ public class Ejercicios {
 
 	public static void main(String[] args) {
 		Ejercicios ejercicios = new Ejercicios();
-
-		File inputFolder = new File("c:/ProgramData");
-		traverse(inputFolder, "");
+		try {
+			Ejercicios.mezclaFicherosOrdenados("ficheros/teclado.txt", "ficheros/teclado2.txt",
+					"ficheros/mezclado.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// File inputFolder = new File("c:/ProgramData");
+		// traverse(inputFolder, "");
 
 		// int[] pajar = { 12, 45, 46, 57, 78, 90, 99 };
 		// int aguja = 12;
