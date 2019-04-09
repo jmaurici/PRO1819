@@ -45,6 +45,10 @@ public class Ejercicios {
 	
 	
 	
+	
+	
+	
+	
 
 	// 27 marzo 2019
 	// MEZCLA DE DOS FICHEROS DE TEXTO , ORDENADOS PREVIAMENTE POR UN CAMPO (CLAVE)
@@ -1383,17 +1387,24 @@ public class Ejercicios {
 	}
 
 	public static void main(String[] args) {
-		Ejercicios ejercicios = new Ejercicios();
+		//Ejercicios ejercicios = new Ejercicios();
+		BaseDatos bd = new BaseDatos();
 		try {
-			Ejercicios.mezclaFicherosOrdenados("ficheros/teclado.txt", "ficheros/teclado2.txt",
-					"ficheros/mezclado.txt");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Driver not found");
 		}
+		bd.setHost("localhost:3306");
+		bd.setDbName("sakila");
+		bd.setDbUser("root");
+		bd.setDbPass("1234");
+		/*
+		 * try { Ejercicios.mezclaFicherosOrdenados("ficheros/teclado.txt",
+		 * "ficheros/teclado2.txt", "ficheros/mezclado.txt"); } catch
+		 * (FileNotFoundException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); } catch (IOException e) { // TODO Auto-generated catch
+		 * block e.printStackTrace(); }
+		 */
 		// File inputFolder = new File("c:/ProgramData");
 		// traverse(inputFolder, "");
 
@@ -1447,10 +1458,10 @@ public class Ejercicios {
 
 		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
 
-		int[] vector = ejercicios.matrizToArrayOrdenado(datos);
+		//int[] vector = ejercicios.matrizToArrayOrdenado(datos);
 		// ejercicios.ordenaFilasMatriz(datos);
 
-		int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
+		//int[] acumuladoColumnas = ejercicios.sumaColumnasMatrizHeterogenea(datos);
 
 		// int[] x = {78,34,1,34,54,29,3};
 		// String[] nombres = { "carlos", "maria", "luis", "nuria", "roberto",
