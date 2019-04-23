@@ -2,6 +2,7 @@ package control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class BaseDatos {
 
@@ -17,7 +18,18 @@ public class BaseDatos {
 		this.dbName = dbName;
 		this.dbUser = dbUser;
 		this.dbPass = dbPass;
-		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost/sakila?&"
+			                + "user=root&password=1234");
+			
+			System.out.println("Conectado ...");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public BaseDatos() {

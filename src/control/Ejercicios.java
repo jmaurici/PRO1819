@@ -1388,16 +1388,9 @@ public class Ejercicios {
 
 	public static void main(String[] args) {
 		//Ejercicios ejercicios = new Ejercicios();
-		BaseDatos bd = new BaseDatos();
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			System.out.println("Driver not found");
-		}
-		bd.setHost("localhost:3306");
-		bd.setDbName("sakila");
-		bd.setDbUser("root");
-		bd.setDbPass("1234");
+		
+		BaseDatos bd = new BaseDatos("localhost:3306", "sakila", "root", "1234");
+		
 		/*
 		 * try { Ejercicios.mezclaFicherosOrdenados("ficheros/teclado.txt",
 		 * "ficheros/teclado2.txt", "ficheros/mezclado.txt"); } catch
