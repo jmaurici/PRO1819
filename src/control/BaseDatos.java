@@ -21,7 +21,7 @@ public class BaseDatos {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost/sakila?&"
-			                + "user=root&password=1234");
+			                + "user=root&password=1234&serverTimezone=UTC");
 			
 			System.out.println("Conectado ...");
 		} catch (SQLException e) {
