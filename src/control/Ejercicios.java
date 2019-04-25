@@ -39,6 +39,7 @@ import modelo.Estudiante;
 import modelo.Jugador;
 import modelo.Partido;
 import modelo.Persona;
+import modelo.dao.AccesoDatos;
 
 public class Ejercicios {
 	
@@ -1387,9 +1388,15 @@ public class Ejercicios {
 	}
 
 	public static void main(String[] args) {
+		
+		//AccesoDatos aDatos = new AccesoDatos();
+		//aDatos.recorreTabla();
+		AccesoDatos.recorreTabla();
+		
+		
 		//Ejercicios ejercicios = new Ejercicios();
 		
-		BaseDatos bd = new BaseDatos("localhost:3306", "sakila", "root", "1234");
+		//BaseDatos bd = new BaseDatos("localhost:3306", "sakila", "root", "1234");
 		
 		/*
 		 * try { Ejercicios.mezclaFicherosOrdenados("ficheros/teclado.txt",

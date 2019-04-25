@@ -3,6 +3,10 @@ package control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 public class BaseDatos {
 
@@ -20,8 +24,12 @@ public class BaseDatos {
 		this.dbPass = dbPass;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			this.conexion = DriverManager.getConnection("jdbc:mysql://localhost/sakila?&"
-			                + "user=root&password=1234&serverTimezone=UTC");
+			//this.conexion = DriverManager.getConnection("jdbc:mysql://localhost/sakila?&"
+			     //           + "user=root&password=1234&serverTimezone=UTC");
+			
+			this.conexion = DriverManager.getConnection("jdbc:mysql://" + host + "/" +
+			dbName + "?&user=" + dbUser + "&password=" + dbPass + "&serverTimezone=UTC");
+	              
 			
 			System.out.println("Conectado ...");
 		} catch (SQLException e) {
