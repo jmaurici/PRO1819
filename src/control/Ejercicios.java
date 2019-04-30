@@ -1391,8 +1391,8 @@ public class Ejercicios {
 		
 		//AccesoDatos aDatos = new AccesoDatos();
 		//aDatos.recorreTabla();
-		AccesoDatos.recorreTabla();
-		
+		//AccesoDatos.recorreTabla();
+		AccesoDatos.insertaEquiposDesdeFichero("ficheros/equipos.txt");
 		
 		//Ejercicios ejercicios = new Ejercicios();
 		
