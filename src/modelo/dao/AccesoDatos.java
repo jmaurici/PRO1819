@@ -25,20 +25,14 @@ public class AccesoDatos {
 			BaseDatos bd = new BaseDatos("localhost", "liga", "root", "1234");
 			Connection conexion = bd.getConexion();
 			Statement stmt = conexion.createStatement();
-			
-			
-			
 			while ((registro = fichero.readLine()) != null) {
-
-				
 				String[] campos = registro.split("#");
-
 				int id = Integer.parseInt(campos[0]);
 				String nombreCorto = campos[1]; // ojo con las COMILLAS EN EL INSERT!!
 				String nombre = campos[2];
 
 				String sql = "INSERT INTO equipos (id, nombreCorto, nombre) VALUES ";
-				sql += "(" + id + ",\"" + nombreCorto + "\"," + "\"" +nombre + "\")";
+				sql += "(" + id + ",\"" + nombreCorto + "\"," + "\"" + nombre + "\")";
 				System.out.println(sql);
 				stmt.executeUpdate(sql);
 			}
@@ -56,20 +50,26 @@ public class AccesoDatos {
 
 	}
 
-	public static void recorreTabla() {
+	public static void recorreTabla(String bdatos, String tabla) {
 		// mostrar por consola TODOS LOS ACTORES...
 		// CONECTAR A LA BBDD.
 
 		try {
-			BaseDatos bd = new BaseDatos("localhost", "sakila", "root", "1234");
+			BaseDatos bd = new BaseDatos("localhost", bdatos, "root", "1234");
 			Connection conexion = bd.getConexion();
 			Statement stmt = conexion.createStatement();
-			ResultSet rS = stmt.executeQuery("SELECT * FROM actor WHERE 1 ");
+			ResultSet rS = stmt.executeQuery("SELECT * FROM " + tabla + " WHERE 1 ");
 
 			ResultSetMetaData mD = rS.getMetaData();
-
-			while (rS.next())
-				System.out.println(rS.getString("first_name") + "\t\t" + rS.getString(2));
+			for (int i = 1; i < mD.getColumnCount(); i++) {
+				System.out.print(i + " -> " + mD.getColumnName(i) + "\t\t");
+			}
+			System.out.println();
+			while (rS.next()) {
+				for (int i = 1; i < mD.getColumnCount(); i++)
+					System.out.print(rS.getString(i) + "\t\t");
+				System.out.println();
+			}
 			rS.close();
 			stmt.close();
 			conexion.close();
