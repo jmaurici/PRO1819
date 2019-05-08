@@ -13,6 +13,19 @@ import java.sql.Statement;
 import control.BaseDatos;
 
 public class AccesoDatos {
+	
+	// 8 mayo 2019
+	
+	public  static boolean validaLogin (String u, String p) {
+		// conectar a bd
+		// preparar consulta contra liga.usuarios (SELECT)
+		// como saber si existe o no ?
+		
+		
+		return true;
+	}
+	
+	
 	// 30 abril 2019
 
 	public static void insertaEquiposDesdeFichero(String rutaEquipos) {
