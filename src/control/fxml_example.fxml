@@ -58,10 +58,10 @@
   <PasswordField fx:id="pwd" GridPane.columnIndex="1" GridPane.rowIndex="2" />
   
   <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-      <Button onAction="#manejarBoton" text="Login" />
+      <Button onAction="#validarLogin" text="Login" />
   </HBox>
   
-  <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+  <Text fx:id="mensaje" GridPane.columnIndex="1" GridPane.rowIndex="6" />
   
   <stylesheets>
     <URL value="@Login.css" />

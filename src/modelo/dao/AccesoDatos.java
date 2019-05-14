@@ -13,19 +13,39 @@ import java.sql.Statement;
 import control.BaseDatos;
 
 public class AccesoDatos {
-	
+
 	// 8 mayo 2019
-	
-	public  static boolean validaLogin (String u, String p) {
-		// conectar a bd
-		// preparar consulta contra liga.usuarios (SELECT)
-		// como saber si existe o no ?
-		
-		
-		return true;
+
+	public static boolean validaLogin(String u, String p) {
+		// mostrar por consola TODOS LOS ACTORES...
+		// CONECTAR A LA BBDD.
+
+		try {
+			BaseDatos bd = new BaseDatos("localhost", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+
+			String sql = "SELECT * FROM usuarios  WHERE usuario LIKE '" + u + "' AND clave LIKE '" + p + "'";
+
+			ResultSet rS = stmt.executeQuery(sql);
+			int contador = 0;
+			while (rS.next()) {
+				contador++;
+			}
+			rS.close();
+			stmt.close();
+			conexion.close();
+			if (contador == 0) // no encontrado
+				return false;
+			return true;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println("Error de conexión");
+		}
+		return false;
 	}
-	
-	
+
 	// 30 abril 2019
 
 	public static void insertaEquiposDesdeFichero(String rutaEquipos) {

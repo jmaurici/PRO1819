@@ -41,19 +41,22 @@ import modelo.dao.AccesoDatos;
 
 public class FXMLExampleController {
 	@FXML
-	private Text actiontarget;
+	private Text mensaje;
 	@FXML
 	private TextField usr;
 	@FXML
 	private PasswordField pwd;
 
 	@FXML
-	protected void manejarBoton(ActionEvent event) {
+	protected void validarLogin(ActionEvent event) {
 		String texto = usr.getText() + " / " + pwd.getText();
 
 		boolean login = AccesoDatos.validaLogin(usr.getText(), pwd.getText());
-		
-		actiontarget.setText(texto);
+		if (login)
+			mensaje.setText("CONECTADO");
+		else
+			mensaje.setText("ACCESO DENEGADO");
+
 	}
 
 }
