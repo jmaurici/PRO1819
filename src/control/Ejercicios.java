@@ -667,7 +667,7 @@ public class Ejercicios {
 	}
 	// lista de equipos
 
-	public ArrayList<Equipo> crearListaEquipos(String rutaFichero) {
+	public static ArrayList<Equipo> crearListaEquipos(String rutaFichero) {
 		try {
 			BufferedReader fichero;
 			fichero = new BufferedReader(new FileReader(rutaFichero));
