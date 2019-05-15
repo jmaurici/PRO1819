@@ -21,7 +21,7 @@ public class ComboController  {
 	}
 	
 	public void muestraEquipo() {
-		//
-		
+		System.out.println("Ha seleccionado un equipo...");
+		System.out.println(miCombo.getValue().getId());
 	}
 }
