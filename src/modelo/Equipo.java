@@ -28,6 +28,9 @@ public class Equipo implements Serializable,Comparable<Equipo> {
 	}
 
 
+	
+
+
 	public int getPj() {
 		return pj;
 	}

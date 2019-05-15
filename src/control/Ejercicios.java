@@ -1391,8 +1391,15 @@ public class Ejercicios {
 		
 		//AccesoDatos aDatos = new AccesoDatos();
 		//aDatos.recorreTabla();
-		AccesoDatos.recorreTabla("liga", "equipos");
+		//AccesoDatos.recorreTabla("liga", "equipos");
 		//AccesoDatos.insertaEquiposDesdeFichero("ficheros/equipos.txt");
+		
+		
+		//AccesoDatos.insertaJugadoresDesdeFichero("ficheros/jugadores2.txt");
+		
+		//ArrayList<Equipo> listaEquipos = AccesoDatos.getAllTeams();
+		
+		ArrayList<Jugador> judadores = AccesoDatos.getPlayersByTeam("19");
 		
 		//Ejercicios ejercicios = new Ejercicios();
 		

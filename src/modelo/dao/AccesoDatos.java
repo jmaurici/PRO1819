@@ -9,11 +9,103 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import control.BaseDatos;
+import modelo.Equipo;
+import modelo.Jugador;
 
 public class AccesoDatos {
 
+// 15 mayo 2019
+// lista de jugadores de un equipo dado
+
+	public static ArrayList<Jugador> getPlayersByTeam(String e) {
+
+		ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
+		String sql = "";
+		Jugador j = new Jugador();
+		j.setDorsal(12);
+		j.setFecha_nac(null);
+		j.setId(15);
+		j.setIdEquipo(3);
+		j.setLongitudPaso(123);
+		j.setNif("4563412K");
+		j.setNombre("Pepe");
+		j.setSexo('M');
+		listaJugadores.add(j);
+		
+		return listaJugadores;
+	}
+
+	public static ArrayList<Equipo> getAllTeams() {
+		ArrayList<Equipo> listaEquipos = new ArrayList<Equipo>();
+		try {
+			BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			ResultSet rS = stmt.executeQuery("select * from equipos where 1;");
+
+			while (rS.next()) { // devuelve una linea de la consulta, es decir, una fila de la tabla
+				Equipo e = new Equipo();
+				e.setId(rS.getInt("id"));
+				e.setNombre(rS.getString("nombre"));
+				e.setNombreCorto(rS.getString("nombreCorto"));
+				e.setGc(rS.getInt("pj"));
+				e.setGf(rS.getInt("puntos"));
+				e.setPe(rS.getInt("pg"));
+				e.setPg(rS.getInt("pj"));
+				e.setPp(rS.getInt("pp"));
+				e.setGf(rS.getInt("gf"));
+				e.setGc(rS.getInt("gc"));
+
+				listaEquipos.add(e);
+			}
+
+			rS.close();
+			stmt.close();
+			conexion.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		}
+		return listaEquipos;
+	}
+
+	public static void insertaJugadoresDesdeFichero(String rutaJugadores) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaJugadores));
+			BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				int id = Integer.parseInt(campos[0]);
+				String nombre = campos[1];
+				int dorsal = Integer.parseInt(campos[2]);
+				int idEquipo = Integer.parseInt(campos[3]);
+
+				String sql = "insert into jugadores(id, nombre,dorsal, idEquipo) values";
+				sql += "(" + id + ",\"" + nombre + "\"," + dorsal + "," + idEquipo + ")";
+				System.out.println(sql);
+				stmt.executeUpdate(sql);
+			}
+			stmt.close();
+			conexion.close();
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	// 8 mayo 2019
 
 	public static boolean validaLogin(String u, String p) {
@@ -94,12 +186,12 @@ public class AccesoDatos {
 			ResultSet rS = stmt.executeQuery("SELECT * FROM " + tabla + " WHERE 1 ");
 
 			ResultSetMetaData mD = rS.getMetaData();
-			for (int i = 1; i < mD.getColumnCount(); i++) {
+			for (int i = 1; i <= mD.getColumnCount(); i++) {
 				System.out.print(i + " -> " + mD.getColumnName(i) + "\t\t");
 			}
 			System.out.println();
 			while (rS.next()) {
-				for (int i = 1; i < mD.getColumnCount(); i++)
+				for (int i = 1; i <= mD.getColumnCount(); i++)
 					System.out.print(rS.getString(i) + "\t\t");
 				System.out.println();
 			}
