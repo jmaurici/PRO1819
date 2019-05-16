@@ -1399,7 +1399,7 @@ public class Ejercicios {
 		
 		//ArrayList<Equipo> listaEquipos = AccesoDatos.getAllTeams();
 		
-		ArrayList<Jugador> judadores = AccesoDatos.getPlayersByTeam("19");
+		ArrayList<Jugador> jugadoresEquipo = AccesoDatos.getPlayersByTeam(19);
 		
 		//Ejercicios ejercicios = new Ejercicios();
 		

@@ -20,22 +20,41 @@ public class AccesoDatos {
 // 15 mayo 2019
 // lista de jugadores de un equipo dado
 
-	public static ArrayList<Jugador> getPlayersByTeam(String e) {
-
-		ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
-		String sql = "";
-		Jugador j = new Jugador();
-		j.setDorsal(12);
-		j.setFecha_nac(null);
-		j.setId(15);
-		j.setIdEquipo(3);
-		j.setLongitudPaso(123);
-		j.setNif("4563412K");
-		j.setNombre("Pepe");
-		j.setSexo('M');
-		listaJugadores.add(j);
+	public static ArrayList<Jugador> getPlayersByTeam(int idEquipo){
 		
-		return listaJugadores;
+		ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
+		try {
+			BaseDatos bd = new BaseDatos("localhost:3306",  "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			String sql ="select * from jugadores where idEquipo " +		
+             " like '" +  idEquipo + "'";
+			
+			System.out.println(sql);
+			
+			ResultSet rS = stmt.executeQuery(sql);
+     		
+				//	+ "(select id from equipos where equipos.nombre like \"" +  equipo +"\" );");
+			while(rS.next()) { 					
+				Jugador jugador = new Jugador();
+				jugador.setId(rS.getInt("id"));
+				jugador.setNombre(rS.getString("nombre"));
+				jugador.setDorsal(rS.getInt("dorsal"));
+				jugador.setIdEquipo(rS.getInt("idequipo"));				
+				listaJugadores.add(jugador);			
+			}			
+			rS.close();
+			stmt.close();
+			conexion.close();
+			return listaJugadores;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
+		
 	}
 
 	public static ArrayList<Equipo> getAllTeams() {

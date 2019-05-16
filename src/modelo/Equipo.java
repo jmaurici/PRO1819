@@ -133,7 +133,7 @@ public class Equipo implements Serializable,Comparable<Equipo> {
 
 	@Override
 	public String toString() {
-		return  nombre ;
+		return  nombre;
 	}
 
 

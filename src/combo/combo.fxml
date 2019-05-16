@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="combo.ComboController">
    <children>
-      <Label layoutX="177.0" layoutY="23.0" prefHeight="17.0" prefWidth="223.0" text="Consulta Equipos" textFill="#e40e0e">
+      <Label layoutX="112.0" layoutY="24.0" prefHeight="39.0" prefWidth="407.0" text="Liga Española (Primera División)" textFill="#e40e0e">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <ComboBox fx:id="miCombo" layoutX="54.0" layoutY="96.0" onAction="#cargaJugadoresEquipo" prefWidth="150.0" />
-      <ListView fx:id="lv_jugadores" layoutX="289.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <ComboBox onAction="#cargaJugadoresEquipo" fx:id="miCombo" layoutX="27.0" layoutY="96.0" prefWidth="150.0" />
+      <ListView fx:id="lv_jugadores" layoutX="354.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
