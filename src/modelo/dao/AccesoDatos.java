@@ -10,12 +10,74 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import control.BaseDatos;
 import modelo.Equipo;
 import modelo.Jugador;
+import modelo.Partido;
 
 public class AccesoDatos {
+	public Partido creaPartidoBD(ResultSet linea) {
+		try {
+			Partido partido = new Partido();			
+			partido.setId(linea.getInt("id"));
+			partido.setJornada(linea.getInt("jornada"));
+			partido.seteL(linea.getString("eL"));
+			partido.seteV(linea.getString("eV"));
+			partido.setgL(linea.getInt("gL"));
+			partido.setgV(linea.getInt("gV"));
+			return partido;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	public ArrayList<Equipo> generaClasificacionBD() {
+
+		ArrayList<Equipo> resultado;
+			resultado = getAllTeams();
+			try {
+				BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
+				Connection conexion = bd.getConexion();
+				Statement stmt = conexion.createStatement();
+				ResultSet rS = stmt.executeQuery("select * from partidos where 1;");
+				Partido partido;
+				while (rS.next()) { 
+					partido = creaPartidoBD(rS);
+				}
+
+				rS.close();
+				stmt.close();
+				conexion.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} catch (NullPointerException e) {
+				System.out.println(e.getMessage());
+			}
+		
+		//	Partido partido;
+		//	while ((registro = fichero.readLine()) != null) {
+				//partido = creaPartido(registro);
+			//	if (partido == null) // ultimo partido jugado..
+				//	break;
+				// actualiza lista Equipos
+			//	actualizaEquipos(partido, resultado);
+			//}
+			//Collections.sort(resultado, null);
+			//fichero.close();
+			/*return resultado;
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}*/
+		return null;
+	
+	}
+	
+	// 22 mayo 2019
 	public void insertaPartidosDesdeFichero2(String rutaPartidos) {
 		try {
 			BufferedReader fichero;
