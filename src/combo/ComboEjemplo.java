@@ -53,7 +53,7 @@ public class ComboEjemplo extends Application {
 	    stage.show();
 
 	    //Set Data to FXML through controller
-	    myController.cargaEquipos();
+	    //myController.cargaEquipos();
 	}
 	  public static void main(String[] args) {
 	    launch(args);

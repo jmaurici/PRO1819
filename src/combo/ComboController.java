@@ -2,11 +2,14 @@ package combo;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -18,7 +21,7 @@ import modelo.Equipo;
 import modelo.Jugador;
 import modelo.dao.AccesoDatos;
 
-public class ComboController {
+public class ComboController implements Initializable {
 	@FXML
 	private ComboBox<Equipo> miCombo;
 	@FXML
@@ -77,5 +80,13 @@ public class ComboController {
 		        logger.log(Level.SEVERE, "Failed to create new Window.", e);
 		    }
 		});
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		miCombo.getItems().clear();
+		// miCombo.getItems().addAll(Ejercicios.crearListaEquipos("ficheros/equipos.txt"));
+		miCombo.getItems().addAll(AccesoDatos.getAllTeams());
 	}
 }

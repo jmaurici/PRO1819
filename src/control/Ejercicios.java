@@ -1399,8 +1399,8 @@ public class Ejercicios {
 		
 		//ArrayList<Equipo> listaEquipos = AccesoDatos.getAllTeams();
 		
-		ArrayList<Jugador> jugadoresEquipo = AccesoDatos.getPlayersByTeam(19);
-		
+	//	ArrayList<Jugador> jugadoresEquipo = AccesoDatos.getPlayersByTeam(19);
+		AccesoDatos.insertaPartidosDesdeFichero("ficheros/partidos.txt");
 		//Ejercicios ejercicios = new Ejercicios();
 		
 		//BaseDatos bd = new BaseDatos("localhost:3306", "sakila", "root", "1234");

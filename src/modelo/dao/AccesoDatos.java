@@ -16,7 +16,111 @@ import modelo.Equipo;
 import modelo.Jugador;
 
 public class AccesoDatos {
+	public void insertaPartidosDesdeFichero2(String rutaPartidos) {
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaPartidos));
+			BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			String registro;
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				int id = Integer.parseInt(campos[0]);
+				int jornada = Integer.parseInt(campos[1]);
+				String eL = campos[2];
+				String eV = campos[4];
+				String sql = "insert into partidos(idPartidos,jornada,equipoLocal,golesLocal,equipoVisitante,golesVisitante) values";
+				if (!campos[3].equals("")) {
+					int gL = Integer.parseInt(campos[3]);
+					int gV = Integer.parseInt(campos[5]);
+					sql += "(" + id + "," + jornada + ",\"" + eL + "\"," + gL + ",\"" + eV + "\"," + gV + ")";
+				} else {
+					
+					sql += "(" + id + "," + jornada + ",\"" + eL + "\"," + null + ",\"" + eV + "\"," + null + ")";
 
+				}
+				System.out.println(sql);
+				stmt.executeUpdate(sql);
+
+			}
+			stmt.close();
+			conexion.close();
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+
+		} catch (NumberFormatException e) {
+		
+		} catch (FileNotFoundException e) {
+			System.out.println("fichero no encontrado");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		}
+	}
+
+
+	
+// 21 de mayo 2019
+	
+	public static void insertaPartidosDesdeFichero(String rutaPartidos) {
+
+		try {
+			BufferedReader fichero;
+			fichero = new BufferedReader(new FileReader(rutaPartidos));
+			String registro;
+
+			BaseDatos bd = new BaseDatos("localhost", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			
+			int IdCamposNull = 0;
+			int gL;
+			int gV;
+			
+			while ((registro = fichero.readLine()) != null) {
+				String[] campos = registro.split("#");
+				
+				if (campos[3].equals("")) {
+					gL = 0;
+					gV = 0;
+					IdCamposNull = Integer.parseInt(campos[0]);
+				} else {
+					gL = Integer.parseInt(campos[3]);
+					gV = Integer.parseInt(campos[5]);
+				}
+				
+				int id = Integer.parseInt(campos[0]);
+				int jornada = Integer.parseInt(campos[1]);
+				String eL = campos[2];				
+				String eV = campos[4];				
+				
+
+				String sql = "INSERT INTO partidos (`id`, jornada, eL,  eV) VALUES ";
+				sql += "(" + id + ",'" + jornada + "'," + "'" + eL + "'," + "'" + gL + "'," + "'" + eV + "'," + "'" + gV + "')";
+				System.out.println(sql);
+				stmt.executeUpdate(sql);
+				
+				if (campos[3].equals(""))
+					 stmt.executeUpdate("UPDATE partidos SET gL = null, gV= null WHERE id = '" + IdCamposNull + "'");
+				
+			}
+
+			fichero.close();
+			System.out.println("Fin de la lectura del fichero");
+		} catch (FileNotFoundException excepcion) {
+			System.out.println("fichero no encontrado");
+
+		} catch (IOException e) {
+			System.out.println("IO Excepcion");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	
 // 15 mayo 2019
 // lista de jugadores de un equipo dado
 
