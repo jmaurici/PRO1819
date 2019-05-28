@@ -20,18 +20,44 @@ import modelo.Partido;
 
 public class AccesoDatos {
 	// 28 mayo 2019
-	
-	public static boolean insertaEquiposDesdeLista (ArrayList<Equipo> equipos)
-	{
-		
-		// conectar e insertar en una tabla
-		for (Equipo equipo : equipos) {
-			// preparar el INSERT a la tabla clasificacion
+
+	public static boolean insertaEquiposDesdeLista(ArrayList<Equipo> clasificacion) {
+
+		try {
+			BaseDatos bd = new BaseDatos("localhost", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			// conectar e insertar en una tabla
+			for (Equipo equipo : clasificacion) {
+				int id = equipo.getId();
+				String nombreCorto = equipo.getNombreCorto(); // ojo con las COMILLAS EN EL INSERT!!
+				String nombre = equipo.getNombre();
+				int pj = equipo.getPj();
+				int pg = equipo.getPg();
+				int pe = equipo.getPe();
+				int pp = equipo.getPp();
+				int gF = equipo.getGf();
+				int gC = equipo.getGc();
+				int puntos = equipo.getPuntos();
+
+				String sql = "INSERT INTO clasificacion (id, nombreCorto, nombre,pj,puntos,pg,pe,pp,gf,gc) VALUES ";
+				sql += "(" + id + ",\"" + nombreCorto + "\"," + "\"" + nombre + "\"";
+				sql += ", " + pj + ", " + puntos + ", " + pg + ", " + pe + ", " + pp + ", " + gF + ", " + gC + ")";
+				System.out.println(sql);
+
+				stmt.executeUpdate(sql);
+
+			}
+			stmt.close();
+			conexion.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
-	
+
 	public static Partido creaPartidoBD(ResultSet linea) {
 		try {
 			Partido partido = new Partido();

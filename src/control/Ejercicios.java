@@ -1389,6 +1389,7 @@ public class Ejercicios {
 
 	public static void main(String[] args) {
 		ArrayList<Equipo> clasificacion = AccesoDatos.generaClasificacionBD();
+		AccesoDatos.insertaEquiposDesdeLista(clasificacion);
 		//AccesoDatos aDatos = new AccesoDatos();
 		//aDatos.recorreTabla();
 		//AccesoDatos.recorreTabla("liga", "equipos");
