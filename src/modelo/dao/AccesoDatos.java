@@ -13,14 +13,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import control.BaseDatos;
+import control.Ejercicios;
 import modelo.Equipo;
 import modelo.Jugador;
 import modelo.Partido;
 
 public class AccesoDatos {
-	public Partido creaPartidoBD(ResultSet linea) {
+	// 28 mayo 2019
+	
+	public static boolean insertaEquiposDesdeLista (ArrayList<Equipo> equipos)
+	{
+		
+		// conectar e insertar en una tabla
+		for (Equipo equipo : equipos) {
+			// preparar el INSERT a la tabla clasificacion
+		}
+		
+		return false;
+	}
+	
+	public static Partido creaPartidoBD(ResultSet linea) {
 		try {
-			Partido partido = new Partido();			
+			Partido partido = new Partido();
 			partido.setId(linea.getInt("id"));
 			partido.setJornada(linea.getInt("jornada"));
 			partido.seteL(linea.getString("eL"));
@@ -33,50 +47,40 @@ public class AccesoDatos {
 		}
 		return null;
 	}
-	public ArrayList<Equipo> generaClasificacionBD() {
+
+	public static ArrayList<Equipo> generaClasificacionBD() {
 
 		ArrayList<Equipo> resultado;
-			resultado = getAllTeams();
+		resultado = getAllTeams();
+		try {
+			BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
+			Connection conexion = bd.getConexion();
+			Statement stmt = conexion.createStatement();
+			ResultSet rS = stmt.executeQuery("select * from partidos where 1;");
+			Partido partido;
+			Ejercicios e = new Ejercicios();
+
 			try {
-				BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
-				Connection conexion = bd.getConexion();
-				Statement stmt = conexion.createStatement();
-				ResultSet rS = stmt.executeQuery("select * from partidos where 1;");
-				Partido partido;
-				while (rS.next()) { 
+				while (rS.next()) {
 					partido = creaPartidoBD(rS);
+					e.actualizaEquipos(partido, resultado);
 				}
-
-				rS.close();
-				stmt.close();
-				conexion.close();
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			} catch (NullPointerException e) {
-				System.out.println(e.getMessage());
+			} catch (NullPointerException e1) {
+				System.out.println(e1.getMessage());
 			}
-		
-		//	Partido partido;
-		//	while ((registro = fichero.readLine()) != null) {
-				//partido = creaPartido(registro);
-			//	if (partido == null) // ultimo partido jugado..
-				//	break;
-				// actualiza lista Equipos
-			//	actualizaEquipos(partido, resultado);
-			//}
-			//Collections.sort(resultado, null);
-			//fichero.close();
-			/*return resultado;
-		} catch (FileNotFoundException excepcion) {
-			System.out.println("fichero no encontrado");
-
-		} catch (IOException e) {
-			System.out.println("IO Excepcion");
-		}*/
+			Collections.sort(resultado, null);
+			rS.close();
+			stmt.close();
+			conexion.close();
+			return resultado;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		}
 		return null;
-	
 	}
-	
+
 	// 22 mayo 2019
 	public void insertaPartidosDesdeFichero2(String rutaPartidos) {
 		try {
@@ -98,7 +102,7 @@ public class AccesoDatos {
 					int gV = Integer.parseInt(campos[5]);
 					sql += "(" + id + "," + jornada + ",\"" + eL + "\"," + gL + ",\"" + eV + "\"," + gV + ")";
 				} else {
-					
+
 					sql += "(" + id + "," + jornada + ",\"" + eL + "\"," + null + ",\"" + eV + "\"," + null + ")";
 
 				}
@@ -112,7 +116,7 @@ public class AccesoDatos {
 			System.out.println("Fin de la lectura del fichero");
 
 		} catch (NumberFormatException e) {
-		
+
 		} catch (FileNotFoundException e) {
 			System.out.println("fichero no encontrado");
 		} catch (SQLException e) {
@@ -122,10 +126,8 @@ public class AccesoDatos {
 		}
 	}
 
-
-	
 // 21 de mayo 2019
-	
+
 	public static void insertaPartidosDesdeFichero(String rutaPartidos) {
 
 		try {
@@ -136,14 +138,14 @@ public class AccesoDatos {
 			BaseDatos bd = new BaseDatos("localhost", "liga", "root", "1234");
 			Connection conexion = bd.getConexion();
 			Statement stmt = conexion.createStatement();
-			
+
 			int IdCamposNull = 0;
 			int gL;
 			int gV;
-			
+
 			while ((registro = fichero.readLine()) != null) {
 				String[] campos = registro.split("#");
-				
+
 				if (campos[3].equals("")) {
 					gL = 0;
 					gV = 0;
@@ -152,21 +154,21 @@ public class AccesoDatos {
 					gL = Integer.parseInt(campos[3]);
 					gV = Integer.parseInt(campos[5]);
 				}
-				
+
 				int id = Integer.parseInt(campos[0]);
 				int jornada = Integer.parseInt(campos[1]);
-				String eL = campos[2];				
-				String eV = campos[4];				
-				
+				String eL = campos[2];
+				String eV = campos[4];
 
 				String sql = "INSERT INTO partidos (`id`, jornada, eL,  eV) VALUES ";
-				sql += "(" + id + ",'" + jornada + "'," + "'" + eL + "'," + "'" + gL + "'," + "'" + eV + "'," + "'" + gV + "')";
+				sql += "(" + id + ",'" + jornada + "'," + "'" + eL + "'," + "'" + gL + "'," + "'" + eV + "'," + "'" + gV
+						+ "')";
 				System.out.println(sql);
 				stmt.executeUpdate(sql);
-				
+
 				if (campos[3].equals(""))
-					 stmt.executeUpdate("UPDATE partidos SET gL = null, gV= null WHERE id = '" + IdCamposNull + "'");
-				
+					stmt.executeUpdate("UPDATE partidos SET gL = null, gV= null WHERE id = '" + IdCamposNull + "'");
+
 			}
 
 			fichero.close();
@@ -181,46 +183,44 @@ public class AccesoDatos {
 		}
 
 	}
-	
-	
+
 // 15 mayo 2019
 // lista de jugadores de un equipo dado
 
-	public static ArrayList<Jugador> getPlayersByTeam(int idEquipo){
-		
+	public static ArrayList<Jugador> getPlayersByTeam(int idEquipo) {
+
 		ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
 		try {
-			BaseDatos bd = new BaseDatos("localhost:3306",  "liga", "root", "1234");
+			BaseDatos bd = new BaseDatos("localhost:3306", "liga", "root", "1234");
 			Connection conexion = bd.getConexion();
 			Statement stmt = conexion.createStatement();
-			String sql ="select * from jugadores where idEquipo " +		
-             " like '" +  idEquipo + "'";
-			
+			String sql = "select * from jugadores where idEquipo " + " like '" + idEquipo + "'";
+
 			System.out.println(sql);
-			
+
 			ResultSet rS = stmt.executeQuery(sql);
-     		
-				//	+ "(select id from equipos where equipos.nombre like \"" +  equipo +"\" );");
-			while(rS.next()) { 					
+
+			// + "(select id from equipos where equipos.nombre like \"" + equipo +"\" );");
+			while (rS.next()) {
 				Jugador jugador = new Jugador();
 				jugador.setId(rS.getInt("id"));
 				jugador.setNombre(rS.getString("nombre"));
 				jugador.setDorsal(rS.getInt("dorsal"));
-				jugador.setIdEquipo(rS.getInt("idequipo"));				
-				listaJugadores.add(jugador);			
-			}			
+				jugador.setIdEquipo(rS.getInt("idequipo"));
+				listaJugadores.add(jugador);
+			}
 			rS.close();
 			stmt.close();
 			conexion.close();
 			return listaJugadores;
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return null;
-		
+
 	}
 
 	public static ArrayList<Equipo> getAllTeams() {

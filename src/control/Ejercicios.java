@@ -1388,7 +1388,7 @@ public class Ejercicios {
 	}
 
 	public static void main(String[] args) {
-		
+		ArrayList<Equipo> clasificacion = AccesoDatos.generaClasificacionBD();
 		//AccesoDatos aDatos = new AccesoDatos();
 		//aDatos.recorreTabla();
 		//AccesoDatos.recorreTabla("liga", "equipos");
@@ -1400,7 +1400,7 @@ public class Ejercicios {
 		//ArrayList<Equipo> listaEquipos = AccesoDatos.getAllTeams();
 		
 	//	ArrayList<Jugador> jugadoresEquipo = AccesoDatos.getPlayersByTeam(19);
-		AccesoDatos.insertaPartidosDesdeFichero("ficheros/partidos.txt");
+		//AccesoDatos.insertaPartidosDesdeFichero("ficheros/partidos.txt");
 		//Ejercicios ejercicios = new Ejercicios();
 		
 		//BaseDatos bd = new BaseDatos("localhost:3306", "sakila", "root", "1234");
@@ -1455,15 +1455,15 @@ public class Ejercicios {
 
 		// System.exit(0); // finaliza el programa ...
 
-		int[] lista1 = { 2, 4, 8, 9 };
-		int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
+		//int[] lista1 = { 2, 4, 8, 9 };
+		//int[] lista2 = { 1, 3, 5, 23, 45, 67, 89, 123 };
 
 		// int [] listasMezcladas = ejercicios.mezclaListasOrdenadas(lista1, lista2);
 		// ejercicios.invertirLista(lista2);
 		// int[] listaInvertida = ejercicios.invertirLista2(lista2);
 		// ejercicios.crearEstudiante();
 
-		int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
+		//int[][] datos = { { 7, 4, 6 }, { 6 }, { 5, 2, 3 }, { 4, 2, 5, 1, 9, 0, 3 }, { 5, 6, 1, 3 } };
 
 		//int[] vector = ejercicios.matrizToArrayOrdenado(datos);
 		// ejercicios.ordenaFilasMatriz(datos);
